@@ -96,7 +96,9 @@ extension HomeVC {
     private func bindUIWithView(){
         calendarButton.rx.tap
             .subscribe(onNext:  { [weak self] in
-                self?.delegate?.calendar()
+                let calendarVC = CalendarVC()
+                calendarVC.view.backgroundColor = .white
+                self?.navigationController?.pushViewController(calendarVC, animated: true)
                 print("move to calendar")
             }).disposed(by: disposeBag)
     }
