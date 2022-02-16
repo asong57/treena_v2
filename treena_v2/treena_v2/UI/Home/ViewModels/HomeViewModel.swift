@@ -7,22 +7,25 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
-protocol HomeViewModelType {
-    var moveToCalendar: AnyObserver<Void> { get }
-}
-
-class HomeViewModel: HomeViewModelType {
+class HomeViewModel {
     private let disposeBag = DisposeBag()
     
-    let moveToCalendar: AnyObserver<Void>
+    var input = Input()
+    var output = Output()
     
-    init(){
-        let home = PublishSubject<Void>()
-        
-        moveToCalendar = home.asObserver()
+    struct Input {
+        let tapCalendar = PublishSubject<Void>()
+    }
+    
+    struct Output {
+        let errorMessage = PublishRelay<String>()
     }
     
     
+    init(){
+       
+    }
     
 }

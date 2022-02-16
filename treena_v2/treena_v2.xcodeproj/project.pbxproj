@@ -14,6 +14,12 @@
 		9C58981627B9E9DE0088F0DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C58981427B9E9DE0088F0DE /* Main.storyboard */; };
 		9C58981827B9E9E00088F0DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C58981727B9E9E00088F0DE /* Assets.xcassets */; };
 		9C58981B27B9E9E00088F0DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C58981927B9E9E00088F0DE /* LaunchScreen.storyboard */; };
+		9C58982927BB25920088F0DE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58982827BB25920088F0DE /* HomeViewModel.swift */; };
+		9C58982D27BB2AA80088F0DE /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58982C27BB2AA80088F0DE /* CalendarVC.swift */; };
+		9C58983427BCDAC80088F0DE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58983327BCDAC80088F0DE /* Coordinator.swift */; };
+		9C58983627BCDB020088F0DE /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58983527BCDB020088F0DE /* AppCoordinator.swift */; };
+		9C58983827BCDBE10088F0DE /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58983727BCDBE10088F0DE /* HomeCoordinator.swift */; };
+		9C58983A27BCDDFB0088F0DE /* CalendarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58983927BCDDFB0088F0DE /* CalendarCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +33,12 @@
 		9C58981727B9E9E00088F0DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C58981A27B9E9E00088F0DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C58981C27B9E9E00088F0DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C58982827BB25920088F0DE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		9C58982C27BB2AA80088F0DE /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
+		9C58983327BCDAC80088F0DE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		9C58983527BCDB020088F0DE /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		9C58983727BCDBE10088F0DE /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		9C58983927BCDDFB0088F0DE /* CalendarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCoordinator.swift; sourceTree = "<group>"; };
 		DD06675BAC97AF4831BC9182 /* Pods_treena_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_treena_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -102,18 +114,20 @@
 		9C58982427B9F2430088F0DE /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				9C58982527B9F24E0088F0DE /* Main */,
+				9C58982A27BB2A890088F0DE /* Calendar */,
+				9C58982527B9F24E0088F0DE /* Home */,
 			);
 			path = UI;
 			sourceTree = "<group>";
 		};
-		9C58982527B9F24E0088F0DE /* Main */ = {
+		9C58982527B9F24E0088F0DE /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9C58983227BCDAA90088F0DE /* Coordinator */,
 				9C58982727B9F26E0088F0DE /* ViewModels */,
 				9C58982627B9F2680088F0DE /* Views */,
 			);
-			path = Main;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		9C58982627B9F2680088F0DE /* Views */ = {
@@ -127,8 +141,36 @@
 		9C58982727B9F26E0088F0DE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				9C58982827BB25920088F0DE /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9C58982A27BB2A890088F0DE /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				9C58982B27BB2A9C0088F0DE /* Views */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		9C58982B27BB2A9C0088F0DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C58982C27BB2AA80088F0DE /* CalendarVC.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9C58983227BCDAA90088F0DE /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				9C58983327BCDAC80088F0DE /* Coordinator.swift */,
+				9C58983527BCDB020088F0DE /* AppCoordinator.swift */,
+				9C58983727BCDBE10088F0DE /* HomeCoordinator.swift */,
+				9C58983927BCDDFB0088F0DE /* CalendarCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		AC892035AAE9D0090A2FCE87 /* Frameworks */ = {
@@ -254,9 +296,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C58982D27BB2AA80088F0DE /* CalendarVC.swift in Sources */,
 				9C58981327B9E9DE0088F0DE /* HomeVC.swift in Sources */,
+				9C58983A27BCDDFB0088F0DE /* CalendarCoordinator.swift in Sources */,
 				9C58980F27B9E9DE0088F0DE /* AppDelegate.swift in Sources */,
 				9C58981127B9E9DE0088F0DE /* SceneDelegate.swift in Sources */,
+				9C58982927BB25920088F0DE /* HomeViewModel.swift in Sources */,
+				9C58983827BCDBE10088F0DE /* HomeCoordinator.swift in Sources */,
+				9C58983427BCDAC80088F0DE /* Coordinator.swift in Sources */,
+				9C58983627BCDB020088F0DE /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

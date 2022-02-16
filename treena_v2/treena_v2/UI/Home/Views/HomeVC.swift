@@ -7,8 +7,12 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class HomeVC: UIViewController {
+    private let disposeBag = DisposeBag()
+    var delegate: HomeVCDelegate?
     
     private lazy var treeImageView: UIImageView = {
         let image = UIImageView()
@@ -48,6 +52,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        bindUIWithView()
     }
 }
 
@@ -87,5 +92,17 @@ extension HomeVC {
             make.width.height.equalTo(45)
         }
     }
+    
+    private func bindUIWithView(){
+        calendarButton.rx.tap
+            .subscribe(onNext:  { [weak self] in
+                self?.delegate?.calendar()
+                print("move to calendar")
+            }).disposed(by: disposeBag)
+    }
+}
+
+protocol HomeVCDelegate {
+    func calendar()
 }
 
