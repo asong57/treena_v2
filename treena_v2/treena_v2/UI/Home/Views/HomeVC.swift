@@ -13,6 +13,7 @@ import RxCocoa
 class HomeVC: UIViewController {
     private let disposeBag = DisposeBag()
     var delegate: HomeVCDelegate?
+    var viewModel = HomeViewModel()
     
     private lazy var treeImageView: UIImageView = {
         let image = UIImageView()
@@ -47,6 +48,12 @@ class HomeVC: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(named: "plus"), for: .normal)
         return button
+    }()
+    
+    private lazy var testLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        return label
     }()
 
     override func viewDidLoad() {
@@ -91,6 +98,13 @@ extension HomeVC {
             make.right.equalTo(self.view).offset(-40)
             make.width.height.equalTo(45)
         }
+        
+        view.addSubview(testLabel)
+        testLabel.snp.makeConstraints{ make in
+            make.bottom.equalTo(self.view).offset(-80)
+            make.right.equalTo(self.view).offset(-100)
+            make.width.height.equalTo(45)
+        }
     }
     
     private func bindUIWithView(){
@@ -101,6 +115,9 @@ extension HomeVC {
                 self?.navigationController?.pushViewController(calendarVC, animated: true)
                 print("move to calendar")
             }).disposed(by: disposeBag)
+        
+        viewModel.treeLevel.bind(to: testLabel.rx.text).disposed(by: disposeBag)
+        
     }
 }
 
