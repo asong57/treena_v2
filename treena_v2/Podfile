@@ -9,5 +9,10 @@ target 'treena_v2' do
 pod 'SnapKit', '~> 5.0.0'
 pod 'RxSwift', '6.5.0'
 pod 'RxCocoa', '6.5.0'
+pod 'Firebase/Analytics' # Google Analytics
+pod 'Firebase/Database'
+pod 'FSCalendar'
+pod 'Alamofire', '~> 5.4'
+pod 'Firebase/Auth'
 
 end

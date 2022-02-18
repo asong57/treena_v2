@@ -12,8 +12,7 @@ import RxCocoa
 
 class HomeVC: UIViewController {
     private let disposeBag = DisposeBag()
-    var delegate: HomeVCDelegate?
-    var viewModel = HomeViewModel()
+    private let viewModel = HomeViewModel()
     
     private lazy var treeImageView: UIImageView = {
         let image = UIImageView()
@@ -119,9 +118,5 @@ extension HomeVC {
         viewModel.treeLevel.bind(to: testLabel.rx.text).disposed(by: disposeBag)
         
     }
-}
-
-protocol HomeVCDelegate {
-    func calendar()
 }
 
