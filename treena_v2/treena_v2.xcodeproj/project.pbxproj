@@ -16,10 +16,10 @@
 		9C58981B27B9E9E00088F0DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C58981927B9E9E00088F0DE /* LaunchScreen.storyboard */; };
 		9C58982927BB25920088F0DE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58982827BB25920088F0DE /* HomeViewModel.swift */; };
 		9C58982D27BB2AA80088F0DE /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58982C27BB2AA80088F0DE /* CalendarVC.swift */; };
-		9C58983427BCDAC80088F0DE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58983327BCDAC80088F0DE /* Coordinator.swift */; };
-		9C58983627BCDB020088F0DE /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58983527BCDB020088F0DE /* AppCoordinator.swift */; };
-		9C58983827BCDBE10088F0DE /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58983727BCDBE10088F0DE /* HomeCoordinator.swift */; };
-		9C58983A27BCDDFB0088F0DE /* CalendarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58983927BCDDFB0088F0DE /* CalendarCoordinator.swift */; };
+		9C58984527BF84320088F0DE /* ImageUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58984427BF84320088F0DE /* ImageUrl.swift */; };
+		9C58984727BF85D20088F0DE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C58984627BF85D20088F0DE /* GoogleService-Info.plist */; };
+		9C58984A27BF86D60088F0DE /* DatabaseNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58984927BF86D60088F0DE /* DatabaseNetwork.swift */; };
+		9C58984D27BF8AA30088F0DE /* TreeLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58984C27BF8AA30088F0DE /* TreeLevel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,10 +35,10 @@
 		9C58981C27B9E9E00088F0DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C58982827BB25920088F0DE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9C58982C27BB2AA80088F0DE /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
-		9C58983327BCDAC80088F0DE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		9C58983527BCDB020088F0DE /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		9C58983727BCDBE10088F0DE /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
-		9C58983927BCDDFB0088F0DE /* CalendarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCoordinator.swift; sourceTree = "<group>"; };
+		9C58984427BF84320088F0DE /* ImageUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUrl.swift; sourceTree = "<group>"; };
+		9C58984627BF85D20088F0DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9C58984927BF86D60088F0DE /* DatabaseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseNetwork.swift; sourceTree = "<group>"; };
+		9C58984C27BF8AA30088F0DE /* TreeLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeLevel.swift; sourceTree = "<group>"; };
 		DD06675BAC97AF4831BC9182 /* Pods_treena_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_treena_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,7 +84,9 @@
 		9C58980D27B9E9DE0088F0DE /* treena_v2 */ = {
 			isa = PBXGroup;
 			children = (
+				9C58984827BF86C40088F0DE /* Network */,
 				9C58981C27B9E9E00088F0DE /* Info.plist */,
+				9C58984627BF85D20088F0DE /* GoogleService-Info.plist */,
 				9C58982427B9F2430088F0DE /* UI */,
 				9C58982227B9EA180088F0DE /* Application */,
 			);
@@ -114,6 +116,7 @@
 		9C58982427B9F2430088F0DE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				9C58984B27BF8A590088F0DE /* Common */,
 				9C58982A27BB2A890088F0DE /* Calendar */,
 				9C58982527B9F24E0088F0DE /* Home */,
 			);
@@ -123,7 +126,6 @@
 		9C58982527B9F24E0088F0DE /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				9C58983227BCDAA90088F0DE /* Coordinator */,
 				9C58982727B9F26E0088F0DE /* ViewModels */,
 				9C58982627B9F2680088F0DE /* Views */,
 			);
@@ -162,15 +164,21 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		9C58983227BCDAA90088F0DE /* Coordinator */ = {
+		9C58984827BF86C40088F0DE /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				9C58983327BCDAC80088F0DE /* Coordinator.swift */,
-				9C58983527BCDB020088F0DE /* AppCoordinator.swift */,
-				9C58983727BCDBE10088F0DE /* HomeCoordinator.swift */,
-				9C58983927BCDDFB0088F0DE /* CalendarCoordinator.swift */,
+				9C58984927BF86D60088F0DE /* DatabaseNetwork.swift */,
 			);
-			path = Coordinator;
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9C58984B27BF8A590088F0DE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9C58984427BF84320088F0DE /* ImageUrl.swift */,
+				9C58984C27BF8AA30088F0DE /* TreeLevel.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		AC892035AAE9D0090A2FCE87 /* Frameworks */ = {
@@ -242,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C58981B27B9E9E00088F0DE /* LaunchScreen.storyboard in Resources */,
+				9C58984727BF85D20088F0DE /* GoogleService-Info.plist in Resources */,
 				9C58981827B9E9E00088F0DE /* Assets.xcassets in Resources */,
 				9C58981627B9E9DE0088F0DE /* Main.storyboard in Resources */,
 			);
@@ -298,13 +307,12 @@
 			files = (
 				9C58982D27BB2AA80088F0DE /* CalendarVC.swift in Sources */,
 				9C58981327B9E9DE0088F0DE /* HomeVC.swift in Sources */,
-				9C58983A27BCDDFB0088F0DE /* CalendarCoordinator.swift in Sources */,
+				9C58984D27BF8AA30088F0DE /* TreeLevel.swift in Sources */,
 				9C58980F27B9E9DE0088F0DE /* AppDelegate.swift in Sources */,
 				9C58981127B9E9DE0088F0DE /* SceneDelegate.swift in Sources */,
 				9C58982927BB25920088F0DE /* HomeViewModel.swift in Sources */,
-				9C58983827BCDBE10088F0DE /* HomeCoordinator.swift in Sources */,
-				9C58983427BCDAC80088F0DE /* Coordinator.swift in Sources */,
-				9C58983627BCDB020088F0DE /* AppCoordinator.swift in Sources */,
+				9C58984A27BF86D60088F0DE /* DatabaseNetwork.swift in Sources */,
+				9C58984527BF84320088F0DE /* ImageUrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

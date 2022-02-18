@@ -16,7 +16,7 @@ class HomeVC: UIViewController {
     
     private lazy var treeImageView: UIImageView = {
         let image = UIImageView()
-        let url = URL(string: "https://postfiles.pstatic.net/MjAyMTA3MjlfMjUg/MDAxNjI3NTY4NjE3Njk1.diWQ2q_gQza_Ll8twVi-eDMNQ-qj534u8HfeyYEbXhQg.vP9slLlDMUibCxJRTzvsn6mtBIXlKANOiiuxJ8mozp8g.JPEG.hahahafb/wood9.jpg?type=w966")
+        let url = URL(string: ImageUrl.treeImageURLList[8])
         if let data = try? Data(contentsOf: url!){
             if let imageData = UIImage(data: data){
                 image.image = imageData
@@ -47,12 +47,6 @@ class HomeVC: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(named: "plus"), for: .normal)
         return button
-    }()
-    
-    private lazy var testLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        return label
     }()
 
     override func viewDidLoad() {
@@ -97,13 +91,6 @@ extension HomeVC {
             make.right.equalTo(self.view).offset(-40)
             make.width.height.equalTo(45)
         }
-        
-        view.addSubview(testLabel)
-        testLabel.snp.makeConstraints{ make in
-            make.bottom.equalTo(self.view).offset(-80)
-            make.right.equalTo(self.view).offset(-100)
-            make.width.height.equalTo(45)
-        }
     }
     
     private func bindUIWithView(){
@@ -115,7 +102,7 @@ extension HomeVC {
                 print("move to calendar")
             }).disposed(by: disposeBag)
         
-        viewModel.treeLevel.bind(to: testLabel.rx.text).disposed(by: disposeBag)
+        viewModel.treeLevel.bind(to: treeImageView.rx.image).disposed(by: disposeBag)
         
     }
 }

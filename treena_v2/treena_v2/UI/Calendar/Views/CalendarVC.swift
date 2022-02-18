@@ -9,15 +9,8 @@ import Foundation
 import UIKit
 
 class CalendarVC: UIViewController {
-    var delegate: CalendarVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    
-}
-
-protocol CalendarVCDelegate {
-    func detailCalendar()
 }
