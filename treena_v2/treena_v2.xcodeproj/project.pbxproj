@@ -21,6 +21,7 @@
 		9C58984A27BF86D60088F0DE /* DatabaseNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58984927BF86D60088F0DE /* DatabaseNetwork.swift */; };
 		9C58984D27BF8AA30088F0DE /* TreeLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58984C27BF8AA30088F0DE /* TreeLevel.swift */; };
 		9C58985227BF9B760088F0DE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58985127BF9B760088F0DE /* LoginVC.swift */; };
+		9C58985427BFAE660088F0DE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58985327BFAE660088F0DE /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		9C58984927BF86D60088F0DE /* DatabaseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseNetwork.swift; sourceTree = "<group>"; };
 		9C58984C27BF8AA30088F0DE /* TreeLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeLevel.swift; sourceTree = "<group>"; };
 		9C58985127BF9B760088F0DE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		9C58985327BFAE660088F0DE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		DD06675BAC97AF4831BC9182 /* Pods_treena_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_treena_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -204,6 +206,7 @@
 		9C58985027BF9B650088F0DE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				9C58985327BFAE660088F0DE /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				9C58985227BF9B760088F0DE /* LoginVC.swift in Sources */,
 				9C58982927BB25920088F0DE /* HomeViewModel.swift in Sources */,
 				9C58984A27BF86D60088F0DE /* DatabaseNetwork.swift in Sources */,
+				9C58985427BFAE660088F0DE /* LoginViewModel.swift in Sources */,
 				9C58984527BF84320088F0DE /* ImageUrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

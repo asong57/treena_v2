@@ -7,8 +7,11 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class LoginVC: UIViewController {
+    private let viewModel = LoginViewModel()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +25,7 @@ class LoginVC: UIViewController {
         return imageView
     }()
     
-    private lazy var idTextField: UITextField = {
+    private lazy var emailTextField: UITextField = {
         let textField = UITextField()
         textField.background = UIImage(named: "loginbox")
         return textField
@@ -47,6 +50,11 @@ class LoginVC: UIViewController {
         button.setTitle("회원가입", for: .normal)
         button.setTitleColor(.black, for: .normal)
         return button
+    }()
+    
+    private lazy var errorLabel: UILabel = {
+        let label = UILabel()
+        return label
     }()
 }
 extension LoginVC {
@@ -75,8 +83,8 @@ extension LoginVC {
             make.height.equalTo(30)
         }
         
-        view.addSubview(idTextField)
-        idTextField.snp.makeConstraints{ make in
+        view.addSubview(emailTextField)
+        emailTextField.snp.makeConstraints{ make in
             make.top.equalTo(self.view).offset(280)
             make.centerX.equalToSuperview()
             make.width.equalTo(270)
@@ -90,9 +98,27 @@ extension LoginVC {
             make.width.equalTo(270)
             make.height.equalTo(30)
         }
+        
+        view.addSubview(errorLabel)
+        errorLabel.snp.makeConstraints{ make in
+            make.top.equalTo(self.view).offset(370)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(270)
+            make.height.equalTo(30)
+        }
     }
     
     private func bindUIWithView(){
-       
+        emailTextField.rx.text.orEmpty.bind(to: viewModel.input.email).disposed(by: disposeBag)
+        passwordTextField.rx.text.orEmpty.bind(to: viewModel.input.password).disposed(by: disposeBag)
+        loginButton.rx.tap.bind(to: viewModel.input.tapSignIn).disposed(by: disposeBag)
+        
+        viewModel.output.errorMessage.observe(on: MainScheduler.instance).bind(to: errorLabel.rx.text).disposed(by: disposeBag)
+        viewModel.output.goToMain.observe(on: MainScheduler.instance).bind (onNext: { [weak self] in
+            let homeVC = HomeVC()
+            homeVC.view.backgroundColor = .white
+            self?.navigationController!.navigationBar.isHidden = true
+            self?.navigationController!.pushViewController(homeVC, animated: true)
+        }).disposed(by: disposeBag)
     }
 }

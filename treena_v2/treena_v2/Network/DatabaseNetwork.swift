@@ -26,7 +26,7 @@ class DatabaseNetwork {
         if Auth.auth().currentUser != nil {
             let user = Auth.auth().currentUser
             uid = user?.uid
-            print("user exists : \(uid)")
+            print("user exists : \(String(describing: uid))")
         } else{
             print("user is nil")
         }
@@ -35,8 +35,6 @@ class DatabaseNetwork {
     // 데이터베이스 사용자 일기량 확인 
     func checkDiaryUsage() -> Observable<Int>{
         return Observable.create { subject in
-            subject.onNext(22)
-            /*
             self.ref.child("diary").child(self.uid).getData{ (error, snapshot) in
                 if let error = error {
                     print("error getting data \(error)")
@@ -47,7 +45,7 @@ class DatabaseNetwork {
                 }else {
                     print("No data")
                 }
-            }*/
+            }
             return Disposables.create()
         } 
     }
