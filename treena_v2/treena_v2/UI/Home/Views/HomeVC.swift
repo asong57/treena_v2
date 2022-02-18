@@ -16,12 +16,6 @@ class HomeVC: UIViewController {
     
     private lazy var treeImageView: UIImageView = {
         let image = UIImageView()
-        let url = URL(string: ImageUrl.treeImageURLList[8])
-        if let data = try? Data(contentsOf: url!){
-            if let imageData = UIImage(data: data){
-                image.image = imageData
-            }
-        }
         return image
     }()
     
