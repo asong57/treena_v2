@@ -23,6 +23,8 @@ class HomeViewModel {
         }).disposed(by: disposeBag)
         
         treeLevel = diaryUsage.map{
+            TreeLevel.setTreeLevel(diaryUsage: $0)
+        }.map{
             URL(string: ImageUrl.treeImageURLList[$0])
         }.map{
             try! Data(contentsOf: $0!)
@@ -30,5 +32,4 @@ class HomeViewModel {
             UIImage(data: $0)!
         }
     }
-    
 }

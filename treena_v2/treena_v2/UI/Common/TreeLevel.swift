@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct TreeLevel {
+class TreeLevel {
     // treeLevel 세팅
-    func setTreeLevel(diaryUsage: Int) -> Int{
+    static func setTreeLevel(diaryUsage: Int) -> Int{
         if (diaryUsage <= 2 && diaryUsage >= 0) {
             return 0
         }

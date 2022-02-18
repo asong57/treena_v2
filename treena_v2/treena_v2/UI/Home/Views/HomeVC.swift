@@ -99,11 +99,9 @@ extension HomeVC {
                 let calendarVC = CalendarVC()
                 calendarVC.view.backgroundColor = .white
                 self?.navigationController?.pushViewController(calendarVC, animated: true)
-                print("move to calendar")
             }).disposed(by: disposeBag)
         
         viewModel.treeLevel.bind(to: treeImageView.rx.image).disposed(by: disposeBag)
-        
     }
 }
 
