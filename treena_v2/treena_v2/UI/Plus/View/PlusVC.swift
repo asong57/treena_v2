@@ -11,6 +11,7 @@ import RxSwift
 
 class PlusVC: UIViewController {
     private let disposeBag = DisposeBag()
+    private let viewModel = PlusViewModel()
     
     private lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -35,7 +36,7 @@ class PlusVC: UIViewController {
     
     private lazy var textView: UITextView = {
         let textView: UITextView = UITextView()
-        textView.text = "김송아가 짱"
+        textView.text = "오늘은 기분이 좋았다. 기쁜 하루였다."
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor.black.cgColor
         textView.font = UIFont.systemFont(ofSize: 20.0)
@@ -110,12 +111,18 @@ extension PlusVC {
     }
     
     private func bindUIWithView(){
-        saveButton.rx.tap
+        textView.rx.text.orEmpty.bind(to: viewModel.textViewText).disposed(by: disposeBag)
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        viewModel.todayDate.onNext(formatter.string(from: Date()))
+        saveButton.rx.tap/*
             .subscribe(onNext:  { [weak self] in
                 let commentVC = CommentVC()
                 commentVC.view.backgroundColor = .white
                 self?.navigationController?.pushViewController(commentVC, animated: true)
-            }).disposed(by: disposeBag)
+            })*/
+            .bind(to: viewModel.saveButtonTouched).disposed(by: disposeBag)
         
     }
 }

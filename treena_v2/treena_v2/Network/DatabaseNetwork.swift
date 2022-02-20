@@ -49,4 +49,9 @@ class DatabaseNetwork {
             return Disposables.create()
         } 
     }
+    
+    func saveDiary(text: String, date: String) {
+        self.ref.child("diary").child(uid).child(date).setValue(text)
+        print("save success")
+    }
 }
