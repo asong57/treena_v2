@@ -35,15 +35,15 @@ class LoginViewModel {
                     self.output.errorMessage.accept("6자리 이상 비밀번호를 입력해주세요.")
                 } else {
                     Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-                               if user != nil{
-                                   print("login success")
-                                   self.output.goToMain.accept(())
-                               }else{
-                                   print("login failed")
-                               }
-                           }
+                        if user != nil{
+                            print("login success")
+                            self.output.goToMain.accept(())
+                        }else{
+                            print("login failed")
+                        }
+                    }
                 }
             }.disposed(by: disposeBag)
     }
-
+    
 }

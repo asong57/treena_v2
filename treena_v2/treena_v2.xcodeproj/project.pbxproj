@@ -22,6 +22,7 @@
 		9C58984D27BF8AA30088F0DE /* TreeLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58984C27BF8AA30088F0DE /* TreeLevel.swift */; };
 		9C58985227BF9B760088F0DE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58985127BF9B760088F0DE /* LoginVC.swift */; };
 		9C58985427BFAE660088F0DE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58985327BFAE660088F0DE /* LoginViewModel.swift */; };
+		9CD275E127C20247003017CD /* PlusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD275E027C20247003017CD /* PlusVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		9C58984C27BF8AA30088F0DE /* TreeLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeLevel.swift; sourceTree = "<group>"; };
 		9C58985127BF9B760088F0DE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		9C58985327BFAE660088F0DE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		9CD275E027C20247003017CD /* PlusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusVC.swift; sourceTree = "<group>"; };
 		DD06675BAC97AF4831BC9182 /* Pods_treena_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_treena_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -120,6 +122,7 @@
 		9C58982427B9F2430088F0DE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				9CD275DE27C20222003017CD /* Plus */,
 				9C58984E27BF9B4E0088F0DE /* Login */,
 				9C58984B27BF8A590088F0DE /* Common */,
 				9C58982A27BB2A890088F0DE /* Calendar */,
@@ -209,6 +212,22 @@
 				9C58985327BFAE660088F0DE /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9CD275DE27C20222003017CD /* Plus */ = {
+			isa = PBXGroup;
+			children = (
+				9CD275DF27C2022C003017CD /* Views */,
+			);
+			path = Plus;
+			sourceTree = "<group>";
+		};
+		9CD275DF27C2022C003017CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9CD275E027C20247003017CD /* PlusVC.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		AC892035AAE9D0090A2FCE87 /* Frameworks */ = {
@@ -342,6 +361,7 @@
 				9C58981127B9E9DE0088F0DE /* SceneDelegate.swift in Sources */,
 				9C58985227BF9B760088F0DE /* LoginVC.swift in Sources */,
 				9C58982927BB25920088F0DE /* HomeViewModel.swift in Sources */,
+				9CD275E127C20247003017CD /* PlusVC.swift in Sources */,
 				9C58984A27BF86D60088F0DE /* DatabaseNetwork.swift in Sources */,
 				9C58985427BFAE660088F0DE /* LoginViewModel.swift in Sources */,
 				9C58984527BF84320088F0DE /* ImageUrl.swift in Sources */,
