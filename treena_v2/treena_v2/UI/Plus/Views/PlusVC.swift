@@ -32,6 +32,7 @@ class PlusVC: UIViewController {
         label.textColor = .black
         return label
     }()
+    
     private lazy var textView: UITextView = {
         let textView: UITextView = UITextView()
         textView.text = "김송아가 짱"
@@ -40,10 +41,9 @@ class PlusVC: UIViewController {
         textView.font = UIFont.systemFont(ofSize: 20.0)
         textView.textColor = UIColor.black
         textView.textAlignment = NSTextAlignment.left
-        
-        return textView }()
-
-
+        return textView
+    }()
+    
     private lazy var temporarySaveButton: UIButton = {
         let button = UIButton()
         button.setTitle("임시저장", for: .normal)
@@ -112,7 +112,9 @@ extension PlusVC {
     private func bindUIWithView(){
         saveButton.rx.tap
             .subscribe(onNext:  { [weak self] in
-                
+                let commentVC = CommentVC()
+                commentVC.view.backgroundColor = .white
+                self?.navigationController?.pushViewController(commentVC, animated: true)
             }).disposed(by: disposeBag)
         
     }
