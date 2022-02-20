@@ -116,14 +116,15 @@ extension PlusVC {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
         viewModel.todayDate.onNext(formatter.string(from: Date()))
-        saveButton.rx.tap/*
+        saveButton.rx.tap.bind(to: viewModel.saveButtonTouched).disposed(by: disposeBag)
+        temporarySaveButton.rx.tap.bind(to: viewModel.saveButtonTouched).disposed(by: disposeBag)
+        
+        /*
             .subscribe(onNext:  { [weak self] in
                 let commentVC = CommentVC()
                 commentVC.view.backgroundColor = .white
                 self?.navigationController?.pushViewController(commentVC, animated: true)
             })*/
-            .bind(to: viewModel.saveButtonTouched).disposed(by: disposeBag)
-        
     }
 }
 
