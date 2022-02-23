@@ -40,6 +40,8 @@ class PlusViewModel {
                     self?.diaryText.accept(text)
                 }
                 print("데이터베이스 가져오기")
+            }else{
+                self?.diaryText.accept(" ")
             }
         }).disposed(by: disposeBag)
        

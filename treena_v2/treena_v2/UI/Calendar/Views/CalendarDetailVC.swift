@@ -171,5 +171,7 @@ class CalendarDetailVC: UIViewController {
             let nowDate = year+"년 "+month+"월 "+day+"일"
             self?.dateLabel.text = nowDate
         })
+        beforeButton.rx.tap.bind(to: viewModel.beforeButtonTouched).disposed(by: disposeBag)
+        nextButton.rx.tap.bind(to: viewModel.nextButtonTouched).disposed(by: disposeBag)
     }
 }

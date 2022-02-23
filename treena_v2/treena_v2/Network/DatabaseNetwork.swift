@@ -65,6 +65,7 @@ class DatabaseNetwork {
                     observer.onNext(text)
                     print("got data \(snapshot.value!)")
                 }else {
+                    observer.onNext(" ")
                     print("No data")
                 }
             }
