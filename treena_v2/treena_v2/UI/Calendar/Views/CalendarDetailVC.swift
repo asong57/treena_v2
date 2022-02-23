@@ -11,7 +11,7 @@ import RxSwift
 
 class CalendarDetailVC: UIViewController {
     private let disposeBag = DisposeBag()
-    private let viewModel = CalendarDetailViewModel()
+    let viewModel = CalendarDetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -149,9 +149,6 @@ class CalendarDetailVC: UIViewController {
     private func bindUIWithView(){
         textView.rx.text.orEmpty.bind(to: viewModel.textViewText).disposed(by: disposeBag)
         viewModel.diaryText.bind(to: textView.rx.text).disposed(by: disposeBag)
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        viewModel.todayDate.onNext(formatter.string(from: Date()))
         saveButton.rx.tap.bind(to: viewModel.saveButtonTouched).disposed(by: disposeBag)
         temporarySaveButton.rx.tap.bind(to: viewModel.temporarySaveButtonTouched).disposed(by: disposeBag)
         viewModel.emotionResult.observe(on: MainScheduler.instance).subscribe(onNext: { [weak self] emotion in
@@ -163,5 +160,16 @@ class CalendarDetailVC: UIViewController {
                 self?.navigationController?.pushViewController(commentVC, animated: true)
             }
         }).disposed(by: disposeBag)
+        viewModel.todayDate.subscribe(onNext: {[weak self] date in
+            let endIdx: String.Index = date.index(date.startIndex, offsetBy: 3)
+            let monthStartIdx: String.Index = date.index(date.startIndex, offsetBy: 4)
+            let monthEndIdx: String.Index = date.index(date.startIndex, offsetBy: 5)
+            let dayStartIdx: String.Index = date.index(date.startIndex, offsetBy: 6)
+            let year: String = String(date[...endIdx])
+            let month: String = String(date[monthStartIdx...monthEndIdx])
+            let day: String = String(date[dayStartIdx...])
+            let nowDate = year+"년 "+month+"월 "+day+"일"
+            self?.dateLabel.text = nowDate
+        })
     }
 }

@@ -111,7 +111,7 @@ extension CalendarVC {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
         print(dateFormatter.string(from: date))
-        //nextVC.date = dateFormatter.string(from: date)
+        calendarDetailVC.viewModel.todayDate.onNext(dateFormatter.string(from: date))
         calendarDetailVC.view.backgroundColor = .white
         self.navigationController?.pushViewController(calendarDetailVC, animated: true)
     }

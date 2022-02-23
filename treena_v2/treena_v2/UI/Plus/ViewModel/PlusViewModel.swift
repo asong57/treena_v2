@@ -48,13 +48,13 @@ class PlusViewModel {
             print(element)
         }).disposed(by: disposeBag)
         */
-        temporarySaveButtonTouched.withLatestFrom(saveData).subscribe(onNext: { [weak self] event in
+        temporarySaveButtonTouched.withLatestFrom(saveData).subscribe(onNext: { event in
             DatabaseNetwork.shared.saveDiary(text: event.text, date: event.date)
         }).disposed(by: disposeBag)
         
         saveButtonTouched.withLatestFrom(saveData).subscribe(onNext: { [weak self] event in
             DatabaseNetwork.shared.saveDiary(text: event.text, date: event.date)
-            ApiNetwork.shared.getEmotion(text: event.text).subscribe{ [weak self] event in
+            ApiNetwork.shared.getEmotion(text: event.text).subscribe{ event in
                 switch event {
                 case let .next(answer):
                     print("PlusViewModel emotion : \(answer)")
