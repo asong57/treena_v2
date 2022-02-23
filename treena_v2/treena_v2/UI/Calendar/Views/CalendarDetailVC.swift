@@ -10,9 +10,13 @@ import UIKit
 import RxSwift
 
 class CalendarDetailVC: UIViewController {
+    private let disposeBag = DisposeBag()
+    private let viewModel = CalendarDetailViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        bindUIWithView()
     }
     
     private lazy var logoImageView: UIImageView = {
@@ -50,7 +54,7 @@ class CalendarDetailVC: UIViewController {
     
     private lazy var textView: UITextView = {
         let textView: UITextView = UITextView()
-        textView.text = "오늘은 기분이 좋았다. 기쁜 하루였다."
+        //textView.text = "오늘은 기분이 좋았다. 기쁜 하루였다."
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor.black.cgColor
         textView.font = UIFont.systemFont(ofSize: 20.0)
@@ -140,5 +144,24 @@ class CalendarDetailVC: UIViewController {
             make.bottom.equalTo(self.view).offset(-60)
             make.right.equalTo(self.view).offset(-40)
         }
+    }
+    
+    private func bindUIWithView(){
+        textView.rx.text.orEmpty.bind(to: viewModel.textViewText).disposed(by: disposeBag)
+        viewModel.diaryText.bind(to: textView.rx.text).disposed(by: disposeBag)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        viewModel.todayDate.onNext(formatter.string(from: Date()))
+        saveButton.rx.tap.bind(to: viewModel.saveButtonTouched).disposed(by: disposeBag)
+        temporarySaveButton.rx.tap.bind(to: viewModel.temporarySaveButtonTouched).disposed(by: disposeBag)
+        viewModel.emotionResult.observe(on: MainScheduler.instance).subscribe(onNext: { [weak self] emotion in
+            print("PlusVC emotion : \(emotion)")
+            if emotion != "" {
+                let commentVC = CommentVC()
+                commentVC.view.backgroundColor = .white
+                //self?.viewModel.emotionResult.accept(emotion)
+                self?.navigationController?.pushViewController(commentVC, animated: true)
+            }
+        }).disposed(by: disposeBag)
     }
 }

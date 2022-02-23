@@ -18,18 +18,31 @@ class PlusViewModel {
     var saveButtonTouched: PublishRelay<Void>
     var temporarySaveButtonTouched: PublishRelay<Void>
     var emotionResult: PublishRelay<String>
-   
+    var diaryText: BehaviorRelay<String>
+  
     init(){
-        textViewText = BehaviorSubject<String>(value: "")
         todayDate = BehaviorSubject<String>(value: "")
+        textViewText = BehaviorSubject<String>(value: "")
         saveButtonTouched  = PublishRelay<Void>()
         temporarySaveButtonTouched = PublishRelay<Void>()
+        emotionResult = PublishRelay<String>()
+        diaryText = BehaviorRelay<String>(value: "")
+        
         var saveData: Observable<PlusModel> {
             return Observable.combineLatest(textViewText, todayDate){ text, date in
                 return PlusModel.init(text: text, date: date)
             }
         }
-        emotionResult = PublishRelay<String>()
+        todayDate.subscribe(onNext: { [weak self] date in
+            print("date : \(date)")
+            if date != "" {
+                DatabaseNetwork.shared.getDiary(date: date).subscribe{ [weak self] text in
+                    self?.diaryText.accept(text)
+                }
+                print("데이터베이스 가져오기")
+            }
+        }).disposed(by: disposeBag)
+       
         /*
         emotionResult.subscribe(onNext: { element in
             print(element)
@@ -37,7 +50,7 @@ class PlusViewModel {
         */
         temporarySaveButtonTouched.withLatestFrom(saveData).subscribe(onNext: { [weak self] event in
             DatabaseNetwork.shared.saveDiary(text: event.text, date: event.date)
-        })
+        }).disposed(by: disposeBag)
         
         saveButtonTouched.withLatestFrom(saveData).subscribe(onNext: { [weak self] event in
             DatabaseNetwork.shared.saveDiary(text: event.text, date: event.date)

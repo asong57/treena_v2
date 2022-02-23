@@ -54,4 +54,21 @@ class DatabaseNetwork {
         self.ref.child("diary").child(uid).child(date).setValue(text)
         print("save success")
     }
+    
+    func getDiary(date: String) -> Observable<String> {
+        return Observable.create { observer in
+            self.ref.child("diary").child(self.uid).child(date).getData{ (error, snapshot) in
+                if let error = error {
+                    print("error getting data \(error)")
+                }else if snapshot.exists() {
+                    let text = snapshot.value as! String
+                    observer.onNext(text)
+                    print("got data \(snapshot.value!)")
+                }else {
+                    print("No data")
+                }
+            }
+            return Disposables.create()
+        }
+    }
 }
