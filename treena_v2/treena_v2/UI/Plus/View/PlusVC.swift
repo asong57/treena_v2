@@ -11,7 +11,7 @@ import RxSwift
 
 class PlusVC: UIViewController {
     private let disposeBag = DisposeBag()
-    private let viewModel = PlusViewModel()
+    let viewModel = PlusViewModel()
     
     private lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -122,6 +122,7 @@ extension PlusVC {
             if emotion != "" {
                 let commentVC = CommentVC()
                 commentVC.view.backgroundColor = .white
+                //self?.viewModel.emotionResult.accept(emotion)
                 self?.navigationController?.pushViewController(commentVC, animated: true)
             }
         }).disposed(by: disposeBag)

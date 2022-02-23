@@ -11,7 +11,7 @@ import RxSwift
 
 class CommentVC: UIViewController {
     private let disposeBag = DisposeBag()
-   
+    
     private lazy var treenaImageView: UIImageView = {
         let image = UIImageView()
         return image
@@ -46,6 +46,10 @@ extension CommentVC {
     }
     
     private func bindUIWithView(){
+        let plusVC = PlusVC()
+        plusVC.viewModel.emotionResult.observe(on: MainScheduler.instance).subscribe(onNext: { emotion in
+            print("CommentVC emotion: \(emotion)")
+        }).disposed(by: disposeBag)
         homeButton.rx.tap
             .subscribe(onNext:  { [weak self] in
                 let homeVC = HomeVC()

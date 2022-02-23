@@ -28,6 +28,7 @@
 		9CD275EB27C219F6003017CD /* PlusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD275EA27C219F6003017CD /* PlusModel.swift */; };
 		9CD275ED27C243A2003017CD /* ApiNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD275EC27C243A2003017CD /* ApiNetwork.swift */; };
 		9CD275F027C24570003017CD /* ApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD275EF27C24570003017CD /* ApiResponseModel.swift */; };
+		9CD275F427C619AF003017CD /* CalendarDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD275F327C619AF003017CD /* CalendarDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		9CD275EA27C219F6003017CD /* PlusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusModel.swift; sourceTree = "<group>"; };
 		9CD275EC27C243A2003017CD /* ApiNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetwork.swift; sourceTree = "<group>"; };
 		9CD275EF27C24570003017CD /* ApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseModel.swift; sourceTree = "<group>"; };
+		9CD275F327C619AF003017CD /* CalendarDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailVC.swift; sourceTree = "<group>"; };
 		DD06675BAC97AF4831BC9182 /* Pods_treena_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_treena_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				9C58982C27BB2AA80088F0DE /* CalendarVC.swift */,
+				9CD275F327C619AF003017CD /* CalendarDetailVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				9C58982D27BB2AA80088F0DE /* CalendarVC.swift in Sources */,
 				9C58981327B9E9DE0088F0DE /* HomeVC.swift in Sources */,
 				9C58984D27BF8AA30088F0DE /* TreeLevel.swift in Sources */,
+				9CD275F427C619AF003017CD /* CalendarDetailVC.swift in Sources */,
 				9CD275ED27C243A2003017CD /* ApiNetwork.swift in Sources */,
 				9CD275EB27C219F6003017CD /* PlusModel.swift in Sources */,
 				9C58980F27B9E9DE0088F0DE /* AppDelegate.swift in Sources */,

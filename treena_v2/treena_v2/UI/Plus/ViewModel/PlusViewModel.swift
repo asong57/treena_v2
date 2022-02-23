@@ -17,7 +17,7 @@ class PlusViewModel {
     let todayDate: BehaviorSubject<String>
     var saveButtonTouched: PublishRelay<Void>
     var temporarySaveButtonTouched: PublishRelay<Void>
-    var emotionResult: BehaviorRelay<String>
+    var emotionResult: PublishRelay<String>
    
     init(){
         textViewText = BehaviorSubject<String>(value: "")
@@ -29,11 +29,12 @@ class PlusViewModel {
                 return PlusModel.init(text: text, date: date)
             }
         }
-        emotionResult = BehaviorRelay<String>(value: "happy")
+        emotionResult = PublishRelay<String>()
+        /*
         emotionResult.subscribe(onNext: { element in
             print(element)
         }).disposed(by: disposeBag)
-        
+        */
         temporarySaveButtonTouched.withLatestFrom(saveData).subscribe(onNext: { [weak self] event in
             DatabaseNetwork.shared.saveDiary(text: event.text, date: event.date)
         })
@@ -43,7 +44,7 @@ class PlusViewModel {
             ApiNetwork.shared.getEmotion(text: event.text).subscribe{ [weak self] event in
                 switch event {
                 case let .next(answer):
-                    print("event : \(event)")
+                    print("PlusViewModel emotion : \(answer)")
                     self!.emotionResult.accept(answer)
                 default: break
                 }
