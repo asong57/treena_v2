@@ -34,6 +34,7 @@
 		9CD275FE27C71D75003017CD /* emotion_result.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CD275FD27C71D75003017CD /* emotion_result.json */; };
 		9CD2760127C71DD6003017CD /* EmotionCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2760027C71DD6003017CD /* EmotionCommentModel.swift */; };
 		9CD2760327C737CD003017CD /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2760227C737CD003017CD /* CalendarViewModel.swift */; };
+		9CD2764627C84D87003017CD /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2764527C84D87003017CD /* MyPageVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		9CD275FD27C71D75003017CD /* emotion_result.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = emotion_result.json; path = ../../../../../../../../../../Users/asong/Downloads/emotion_result.json; sourceTree = "<group>"; };
 		9CD2760027C71DD6003017CD /* EmotionCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionCommentModel.swift; sourceTree = "<group>"; };
 		9CD2760227C737CD003017CD /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		9CD2764527C84D87003017CD /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		DD06675BAC97AF4831BC9182 /* Pods_treena_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_treena_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 		9C58982427B9F2430088F0DE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				9CD2764327C84D71003017CD /* MyPage */,
 				9CD275E227C20AB1003017CD /* Comment */,
 				9CD275DE27C20222003017CD /* Plus */,
 				9C58984E27BF9B4E0088F0DE /* Login */,
@@ -327,6 +330,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		9CD2764327C84D71003017CD /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				9CD2764427C84D7D003017CD /* View */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		9CD2764427C84D7D003017CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9CD2764527C84D87003017CD /* MyPageVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		AC892035AAE9D0090A2FCE87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +486,7 @@
 				9CD275F727C6225B003017CD /* CalendarDetailViewModel.swift in Sources */,
 				9CD275E527C20B06003017CD /* CommentVC.swift in Sources */,
 				9C58982927BB25920088F0DE /* HomeViewModel.swift in Sources */,
+				9CD2764627C84D87003017CD /* MyPageVC.swift in Sources */,
 				9CD275E127C20247003017CD /* PlusVC.swift in Sources */,
 				9CD275F027C24570003017CD /* ApiResponseModel.swift in Sources */,
 				9C58984A27BF86D60088F0DE /* DatabaseNetwork.swift in Sources */,

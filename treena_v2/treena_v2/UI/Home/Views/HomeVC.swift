@@ -102,6 +102,13 @@ extension HomeVC {
                 self?.navigationController?.pushViewController(plusVC, animated: true)
             }).disposed(by: disposeBag)
         
+        mypageButton.rx.tap
+            .subscribe(onNext:  { [weak self] in
+                let myPageVC = MyPageVC()
+                myPageVC.view.backgroundColor = .white
+                self?.navigationController?.pushViewController(myPageVC, animated: true)
+            }).disposed(by: disposeBag)
+        
         viewModel.treeImage.bind(to: treeImageView.rx.image).disposed(by: disposeBag)
     }
 }
