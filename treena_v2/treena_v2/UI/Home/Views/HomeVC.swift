@@ -102,7 +102,7 @@ extension HomeVC {
                 self?.navigationController?.pushViewController(plusVC, animated: true)
             }).disposed(by: disposeBag)
         
-        viewModel.treeLevel.bind(to: treeImageView.rx.image).disposed(by: disposeBag)
+        viewModel.treeImage.bind(to: treeImageView.rx.image).disposed(by: disposeBag)
     }
 }
 

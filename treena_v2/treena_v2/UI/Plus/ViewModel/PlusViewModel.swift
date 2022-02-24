@@ -10,7 +10,7 @@ import RxSwift
 import UIKit
 import RxRelay
 
-class PlusViewModel {
+class PlusViewModel: HomeViewModel {
     private let disposeBag = DisposeBag()
     
     let textViewText: BehaviorSubject<String>
@@ -20,19 +20,21 @@ class PlusViewModel {
     var emotionResult: PublishRelay<String>
     var diaryText: BehaviorRelay<String>
   
-    init(){
+    override init(){
         todayDate = BehaviorSubject<String>(value: "")
         textViewText = BehaviorSubject<String>(value: "")
         saveButtonTouched  = PublishRelay<Void>()
         temporarySaveButtonTouched = PublishRelay<Void>()
         emotionResult = PublishRelay<String>()
         diaryText = BehaviorRelay<String>(value: "")
-        
         var saveData: Observable<PlusModel> {
             return Observable.combineLatest(textViewText, todayDate){ text, date in
                 return PlusModel.init(text: text, date: date)
             }
         }
+        
+        super.init()
+        
         todayDate.subscribe(onNext: { [weak self] date in
             print("date : \(date)")
             if date != "" {

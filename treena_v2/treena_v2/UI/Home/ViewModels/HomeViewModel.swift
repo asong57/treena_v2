@@ -13,7 +13,8 @@ import UIKit
 class HomeViewModel {
     private let disposeBag = DisposeBag()
     
-    let treeLevel: Observable<UIImage>
+    let treeImage: Observable<UIImage>
+    let treeLevel: Observable<Int>
     
     init(){
         let diaryUsage: Observable<Int> = DatabaseNetwork.shared.checkDiaryUsage()
@@ -23,6 +24,10 @@ class HomeViewModel {
         }).disposed(by: disposeBag)
         
         treeLevel = diaryUsage.map{
+            TreeLevel.setTreeLevel(diaryUsage: $0)
+        }
+        
+        treeImage = diaryUsage.map{
             TreeLevel.setTreeLevel(diaryUsage: $0)
         }.map{
             URL(string: ImageUrl.treeImageURLList[$0])

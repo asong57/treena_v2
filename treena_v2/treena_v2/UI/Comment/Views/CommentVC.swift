@@ -11,6 +11,7 @@ import RxSwift
 
 class CommentVC: UIViewController {
     private let disposeBag = DisposeBag()
+    let viewModel = CommentViewModel()
     
     private lazy var treenaImageView: UIImageView = {
         let image = UIImageView()
@@ -23,6 +24,13 @@ class CommentVC: UIViewController {
         return button
     }()
 
+    private lazy var commentLabel: UILabel = {
+        let label = UILabel()
+        label.text = " "
+        label.textColor = .black
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -43,19 +51,27 @@ extension CommentVC {
             make.right.equalTo(self.view).offset(-40)
             make.width.height.equalTo(45)
         }
+        
+        view.addSubview(commentLabel)
+        commentLabel.snp.makeConstraints{ make in
+            make.top.equalTo(self.view).offset(15)
+            make.left.equalTo(self.view).offset(10)
+        }
     }
     
     private func bindUIWithView(){
-        let plusVC = PlusVC()
-        plusVC.viewModel.emotionResult.observe(on: MainScheduler.instance).subscribe(onNext: { emotion in
+        viewModel.emotionResult.observe(on: MainScheduler.instance).subscribe(onNext: { emotion in
             print("CommentVC emotion: \(emotion)")
         }).disposed(by: disposeBag)
+        
         homeButton.rx.tap
             .subscribe(onNext:  { [weak self] in
                 let homeVC = HomeVC()
                 homeVC.view.backgroundColor = .white
                 self?.navigationController?.pushViewController(homeVC, animated: true)
             }).disposed(by: disposeBag)
+        viewModel.treenaImage.bind(to: treenaImageView.rx.image).disposed(by: disposeBag)
+        viewModel.commentText.bind(to: commentLabel.rx.text).disposed(by: disposeBag)
     }
 }
 
