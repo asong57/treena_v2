@@ -72,4 +72,25 @@ class DatabaseNetwork {
             return Disposables.create()
         }
     }
+    
+    // 일기 쓴 날짜 배열 가져오기
+    func getDiaryDates() -> Observable<[String]> {
+        var datesWithDiary: [String] = []
+        return Observable.create { observer in
+            self.ref.child("diary").child(self.uid).getData{ (error, snapshot) in
+                if let error = error {
+                    print("error getting data \(error)")
+                }else if snapshot.exists() {
+                    let value: [String: String] = snapshot.value as! [String : String]
+                    for key in value.keys {
+                        datesWithDiary.append(key)
+                    }
+                    observer.onNext(datesWithDiary)
+                }else {
+                    print("No data")
+                }
+            }
+            return Disposables.create()
+        }
+    }
 }

@@ -13,6 +13,8 @@ import RxSwift
 class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
     var calendar = FSCalendar()
     private let disposeBag = DisposeBag()
+    private let viewModel = CalendarViewModel()
+    var dateArr: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,6 +105,11 @@ class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
                 plusVC.view.backgroundColor = .white
                 self?.navigationController?.pushViewController(plusVC, animated: true)
             }).disposed(by: disposeBag)
+       
+        viewModel.diaryDates.subscribe(onNext: {arr in
+           
+        }).disposed(by: disposeBag)
+       
     }
 }
 extension CalendarVC {
@@ -114,5 +121,22 @@ extension CalendarVC {
         calendarDetailVC.viewModel.todayDate.onNext(dateFormatter.string(from: date))
         calendarDetailVC.view.backgroundColor = .white
         self.navigationController?.pushViewController(calendarDetailVC, animated: true)
+    }
+    
+    // 특정 날짜에 이미지 세팅
+    func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
+        let imageDateFormatter = DateFormatter()
+        imageDateFormatter.dateFormat = "yyyyMMdd"
+        let dateStr = imageDateFormatter.string(from: date)
+        //viewModel.dateInput.accept(dateStr)
+        //var existedDiary: Bool = false
+        /*
+        viewModel.checkDiaryExisted.subscribe(onNext: { existed in
+            existedDiary = existed
+            print("CalendarVC existed: \(existed)")
+        }).disposed(by: disposeBag) */
+        let check = dateArr.contains(dateStr) ? true : false
+        print("date: \(dateStr) check : \(check)")
+        return check ? UIImage(named: "rhjleaf2") : nil
     }
 }
