@@ -17,7 +17,7 @@ class DatabaseNetwork {
     var uid: String!
     var diaryUsage: Int
     var treeLevel: Int = 0
-    let user: User?
+    var email: String!
     
     private init() {
         // Firebase Database 연결
@@ -25,11 +25,11 @@ class DatabaseNetwork {
     
         diaryUsage = 0
         if Auth.auth().currentUser != nil {
-            user = Auth.auth().currentUser
+            let user = Auth.auth().currentUser
             uid = user?.uid
+            email = user?.email
             print("user exists : \(String(describing: uid))")
         } else{
-            user = nil
             print("user is nil")
         }
     }
@@ -96,16 +96,17 @@ class DatabaseNetwork {
         }
     }
     
-    func logoutClicked() {
+    func logout() {
         do {
             try Auth.auth().signOut()
+            print("logout success")
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
     }
     
-    func resetPasswordClicked() {
-        Auth.auth().sendPasswordReset(withEmail: (user?.email)!) { (error) in
+    func resetPassword() {
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
             if error != nil {
                 print("failed email sending")
             } else {
@@ -114,14 +115,16 @@ class DatabaseNetwork {
         }
     }
     
-    func deleteUserClicked() {
-        user?.delete(completion: { (error) in
+    
+    func deleteUser() {
+        /*
+        user.delete(completion: { (error) in
             if error != nil {
                 print("failed delete user")
             } else {
                 print("successed delete user")
                 self.ref.child("Users").child(self.uid).removeValue()
             }
-        })
+        })*/
     }
 }

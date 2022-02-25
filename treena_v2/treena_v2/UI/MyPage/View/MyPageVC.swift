@@ -34,7 +34,7 @@ class MyPageVC: UIViewController{
     
     private lazy var resetPasswordButton: UIButton = {
         let button = UIButton()
-        button.setTitle("비밀번호 재설정", for: .normal)
+        button.setTitle("비밀번호 변경", for: .normal)
         button.setTitleColor(.black, for: .normal)
         return button
     }()
@@ -75,6 +75,18 @@ class MyPageVC: UIViewController{
     }
     
     private func bindUIWithView(){
-        resetPasswordButton.rx.tap.bind(to: viewModel.resetPasswordTouched).disposed(by: disposeBag)
+        resetPasswordButton.rx.tap.bind(to:viewModel.resetPasswordTouched).disposed(by: disposeBag)
+        logoutButton.rx.tap.bind(to: viewModel.logoutTouched).disposed(by: disposeBag)
+        viewModel.logoutTouched.subscribe(onNext: {[weak self] event in
+            let loginVC = LoginVC()
+            loginVC.view.backgroundColor = .white
+            self?.navigationController?.pushViewController(loginVC, animated: true)
+        })
+        deleteUserButton.rx.tap.bind(to: viewModel.deleteUserTouched).disposed(by: disposeBag)
+        viewModel.deleteUserTouched.subscribe(onNext: {[weak self] event in
+            let loginVC = LoginVC()
+            loginVC.view.backgroundColor = .white
+            self?.navigationController?.pushViewController(loginVC, animated: true)
+        })
     }
 }
