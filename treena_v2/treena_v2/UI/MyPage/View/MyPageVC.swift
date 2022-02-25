@@ -7,8 +7,11 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class MyPageVC: UIViewController{
+    private let disposeBag = DisposeBag()
+    let viewModel = MyPageViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +32,9 @@ class MyPageVC: UIViewController{
         return button
     }()
     
-    private lazy var findPasswordButton: UIButton = {
+    private lazy var resetPasswordButton: UIButton = {
         let button = UIButton()
-        button.setTitle("비밀번호 찾기", for: .normal)
+        button.setTitle("비밀번호 재설정", for: .normal)
         button.setTitleColor(.black, for: .normal)
         return button
     }()
@@ -58,20 +61,20 @@ class MyPageVC: UIViewController{
             make.centerX.equalToSuperview()
         }
         
-        view.addSubview(findPasswordButton)
-        findPasswordButton.snp.makeConstraints{ make in
+        view.addSubview(resetPasswordButton)
+        resetPasswordButton.snp.makeConstraints{ make in
             make.top.equalTo(self.logoutButton.snp.bottom).offset(40)
             make.centerX.equalToSuperview()
         }
         
         view.addSubview(deleteUserButton)
         deleteUserButton.snp.makeConstraints{ make in
-            make.top.equalTo(self.findPasswordButton.snp.bottom).offset(40)
+            make.top.equalTo(self.resetPasswordButton.snp.bottom).offset(40)
             make.centerX.equalToSuperview()
         }
     }
     
     private func bindUIWithView(){
-        
+        resetPasswordButton.rx.tap.bind(to: viewModel.resetPasswordTouched).disposed(by: disposeBag)
     }
 }
