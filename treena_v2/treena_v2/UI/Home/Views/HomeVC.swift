@@ -12,7 +12,7 @@ import RxCocoa
 
 class HomeVC: UIViewController {
     private let disposeBag = DisposeBag()
-    private let viewModel = HomeViewModel()
+    private lazy var viewModel = HomeViewModel()
     
     private lazy var treeImageView: UIImageView = {
         let image = UIImageView()
