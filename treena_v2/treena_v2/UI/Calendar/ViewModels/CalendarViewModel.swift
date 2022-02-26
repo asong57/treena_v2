@@ -16,21 +16,10 @@ class CalendarViewModel {
     let dateInput: PublishRelay<String>
     let checkDiaryExisted: PublishRelay<Bool>
     init(){
+        DatabaseNetwork.shared.getDiaryDatesWithoutObserver()
+        
         diaryDates = PublishRelay<[String]>()
         dateInput = PublishRelay<String>()
         checkDiaryExisted = PublishRelay<Bool>()
-        var diaryDateArr: [String] = []
-        DatabaseNetwork.shared.getDiaryDates().subscribe(onNext: { arr in
-            diaryDateArr.append(contentsOf: arr)
-            self.diaryDates.accept(arr)
-            print("database diaryDateArr: \(arr)")
-        }).disposed(by: disposeBag)
-
-        dateInput.subscribe(onNext: { date in
-            let check = diaryDateArr.contains(date) ? true: false
-            print("dateInput check : \(check)")
-            self.checkDiaryExisted.accept(check)
-        }).disposed(by: disposeBag)
-
     }
 }

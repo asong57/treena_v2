@@ -13,9 +13,9 @@ import RxSwift
 class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
     var calendar = FSCalendar()
     private let disposeBag = DisposeBag()
-    private let viewModel = CalendarViewModel()
+    let viewModel = CalendarViewModel()
     var dateArr: [String] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         calendar.delegate = self
@@ -105,11 +105,6 @@ class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
                 plusVC.view.backgroundColor = .white
                 self?.navigationController?.pushViewController(plusVC, animated: true)
             }).disposed(by: disposeBag)
-       
-        viewModel.diaryDates.subscribe(onNext: {arr in
-           
-        }).disposed(by: disposeBag)
-       
     }
 }
 extension CalendarVC {
@@ -128,14 +123,7 @@ extension CalendarVC {
         let imageDateFormatter = DateFormatter()
         imageDateFormatter.dateFormat = "yyyyMMdd"
         let dateStr = imageDateFormatter.string(from: date)
-        //viewModel.dateInput.accept(dateStr)
-        //var existedDiary: Bool = false
-        /*
-        viewModel.checkDiaryExisted.subscribe(onNext: { existed in
-            existedDiary = existed
-            print("CalendarVC existed: \(existed)")
-        }).disposed(by: disposeBag) */
-        let check = dateArr.contains(dateStr) ? true : false
+        let check = DatabaseNetwork.datesWithDiary.contains(dateStr) ? true : false
         print("date: \(dateStr) check : \(check)")
         return check ? UIImage(named: "rhjleaf2") : nil
     }

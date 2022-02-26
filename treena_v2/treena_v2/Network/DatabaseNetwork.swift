@@ -18,6 +18,7 @@ class DatabaseNetwork {
     var diaryUsage: Int
     var treeLevel: Int = 0
     var email: String!
+    static var datesWithDiary: [String] = []
     
     private init() {
         // Firebase Database 연결
@@ -94,6 +95,26 @@ class DatabaseNetwork {
             }
             return Disposables.create()
         }
+    }
+    
+    // 일기 쓴 날짜 배열 가져오기
+    func getDiaryDatesWithoutObserver() {
+       
+        self.ref.child("diary").child(self.uid).getData{ (error, snapshot) in
+            if let error = error {
+                print("error getting data \(error)")
+            }else if snapshot.exists() {
+                let value: [String: String] = snapshot.value as! [String : String]
+                for key in value.keys {
+                    DatabaseNetwork.datesWithDiary.append(key)
+                }
+                print("Database arr : \(DatabaseNetwork.datesWithDiary)")
+            }else {
+                print("No data")
+            }
+        }
+        
+       
     }
     
     func logout() {
