@@ -27,18 +27,21 @@ class SignUpVC: UIViewController {
     
     private lazy var nameTextField: UITextField = {
         let textField = UITextField()
+        textField.placeholder = " Name"
         textField.background = UIImage(named: "loginbox")
         return textField
     }()
     
     private lazy var emailTextField: UITextField = {
         let textField = UITextField()
+        textField.placeholder = " Email"
         textField.background = UIImage(named: "loginbox")
         return textField
     }()
     
     private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
+        textField.placeholder = " Password"
         textField.background = UIImage(named: "loginbox")
         textField.isSecureTextEntry = true
         return textField
@@ -46,6 +49,7 @@ class SignUpVC: UIViewController {
     
     private lazy var passwordCheckTextField: UITextField = {
         let textField = UITextField()
+        textField.placeholder = " Password Check"
         textField.background = UIImage(named: "loginbox")
         textField.isSecureTextEntry = true
         return textField

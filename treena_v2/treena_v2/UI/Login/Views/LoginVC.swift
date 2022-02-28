@@ -27,12 +27,14 @@ class LoginVC: UIViewController {
     
     private lazy var emailTextField: UITextField = {
         let textField = UITextField()
+        textField.placeholder = " Email"
         textField.background = UIImage(named: "loginbox")
         return textField
     }()
     
     private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
+        textField.placeholder = " Password"
         textField.background = UIImage(named: "loginbox")
         textField.isSecureTextEntry = true
         return textField
