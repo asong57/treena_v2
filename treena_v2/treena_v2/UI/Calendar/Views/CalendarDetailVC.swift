@@ -15,6 +15,7 @@ class CalendarDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textViewPlaceHolderSetting()
         configureUI()
         bindUIWithView()
     }
@@ -54,11 +55,9 @@ class CalendarDetailVC: UIViewController {
     
     private lazy var textView: UITextView = {
         let textView: UITextView = UITextView()
-        //textView.text = "오늘은 기분이 좋았다. 기쁜 하루였다."
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor.black.cgColor
         textView.font = UIFont.systemFont(ofSize: 20.0)
-        textView.textColor = UIColor.black
         textView.textAlignment = NSTextAlignment.left
         return textView
     }()
@@ -148,7 +147,14 @@ class CalendarDetailVC: UIViewController {
     
     private func bindUIWithView(){
         textView.rx.text.orEmpty.bind(to: viewModel.textViewText).disposed(by: disposeBag)
-        viewModel.diaryText.bind(to: textView.rx.text).disposed(by: disposeBag)
+        viewModel.diaryText.subscribe(onNext: { [weak self] text in
+            if text == " " {
+                self?.textViewPlaceHolderSetting()
+            }else{
+                self?.textView.text = text
+                self?.textView.textColor = UIColor.black
+            }
+        })
         saveButton.rx.tap.bind(to: viewModel.saveButtonTouched).disposed(by: disposeBag)
         temporarySaveButton.rx.tap.bind(to: viewModel.temporarySaveButtonTouched).disposed(by: disposeBag)
         viewModel.emotionResult.observe(on: MainScheduler.instance).subscribe(onNext: { [weak self] emotion in
@@ -173,5 +179,33 @@ class CalendarDetailVC: UIViewController {
         })
         beforeButton.rx.tap.bind(to: viewModel.beforeButtonTouched).disposed(by: disposeBag)
         nextButton.rx.tap.bind(to: viewModel.nextButtonTouched).disposed(by: disposeBag)
+    }
+}
+extension CalendarDetailVC: UITextViewDelegate{
+    func textViewPlaceHolderSetting(){
+        self.textView.delegate = self
+        self.textView.text = "오늘은 어떤 일이 있었나요? \n 오늘 느꼈던 감정에 집중하면서 감정 단어(ex. 행복했다. 슬펐다. 놀랐다)를 사용해서 일기를 작성해 보세요."
+        self.textView.textColor = UIColor.lightGray
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "오늘은 어떤 일이 있었나요? \n오늘 느꼈던 감정에 집중하면서 감정 단어(ex. 행복했다, 슬펐다, 놀랐다)를 사용해서 일기를 작성해 보세요."
+            textView.textColor = UIColor.lightGray
+        }
     }
 }

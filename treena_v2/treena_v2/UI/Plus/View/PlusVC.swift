@@ -36,11 +36,11 @@ class PlusVC: UIViewController {
     
     private lazy var textView: UITextView = {
         let textView: UITextView = UITextView()
-        textView.text = "오늘은 기분이 좋았다. 기쁜 하루였다."
+        textView.text = "오늘은 어떤 일이 있었나요? \n 오늘 느꼈던 감정에 집중하면서 감정 단어(ex. 행복했다. 슬펐다. 놀랐다)를 사용해서 일기를 작성해 보세요."
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor.black.cgColor
         textView.font = UIFont.systemFont(ofSize: 20.0)
-        textView.textColor = UIColor.black
+        textView.textColor = UIColor.lightGray
         textView.textAlignment = NSTextAlignment.left
         return textView
     }()
@@ -61,6 +61,7 @@ class PlusVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        textViewPlaceHolderSetting()
         configureUI()
         bindUIWithView()
     }
@@ -129,3 +130,24 @@ extension PlusVC {
     }
 }
 
+extension PlusVC: UITextViewDelegate {
+    func textViewPlaceHolderSetting(){
+        self.textView.delegate = self
+    }
+    
+    // TextView Place Holder
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+ 
+    // TextView Place Holder
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "오늘은 어떤 일이 있었나요? \n오늘 느꼈던 감정에 집중하면서 감정 단어(ex. 행복했다, 슬펐다, 놀랐다)를 사용해서 일기를 작성해 보세요."
+            textView.textColor = UIColor.lightGray
+        }
+    }
+}
