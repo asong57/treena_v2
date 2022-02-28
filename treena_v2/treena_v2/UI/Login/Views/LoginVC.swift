@@ -120,5 +120,12 @@ extension LoginVC {
             self?.navigationController!.navigationBar.isHidden = true
             self?.navigationController!.pushViewController(homeVC, animated: true)
         }).disposed(by: disposeBag)
+        
+        registerButton.rx.tap
+            .subscribe(onNext:  { [weak self] in
+                let signUpVC = SignUpVC()
+                signUpVC.view.backgroundColor = .white
+                self?.navigationController?.pushViewController(signUpVC, animated: true)
+            }).disposed(by: disposeBag)
     }
 }

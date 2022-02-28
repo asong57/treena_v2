@@ -16,7 +16,7 @@ class DatabaseNetwork {
     private var ref: DatabaseReference!
     var uid: String!
     var diaryUsage: Int
-    var treeLevel: Int = 0
+    var treeLevel: Int = 0                                                                                            
     var email: String!
     static var datesWithDiary: [String] = []
     

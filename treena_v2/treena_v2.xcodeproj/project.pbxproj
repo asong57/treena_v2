@@ -36,6 +36,7 @@
 		9CD2760327C737CD003017CD /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2760227C737CD003017CD /* CalendarViewModel.swift */; };
 		9CD2764627C84D87003017CD /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2764527C84D87003017CD /* MyPageVC.swift */; };
 		9CD2764827C850C6003017CD /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2764727C850C6003017CD /* MyPageViewModel.swift */; };
+		9CD2764D27CCC6B7003017CD /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2764C27CCC6B7003017CD /* SignUpVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		9CD2760227C737CD003017CD /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		9CD2764527C84D87003017CD /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		9CD2764727C850C6003017CD /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
+		9CD2764C27CCC6B7003017CD /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		DD06675BAC97AF4831BC9182 /* Pods_treena_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_treena_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 		9C58982427B9F2430088F0DE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				9CD2764A27CCC693003017CD /* SignUp */,
 				9CD2764327C84D71003017CD /* MyPage */,
 				9CD275E227C20AB1003017CD /* Comment */,
 				9CD275DE27C20222003017CD /* Plus */,
@@ -357,6 +360,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		9CD2764A27CCC693003017CD /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				9CD2764B27CCC6AB003017CD /* View */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		9CD2764B27CCC6AB003017CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9CD2764C27CCC6B7003017CD /* SignUpVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		AC892035AAE9D0090A2FCE87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +517,7 @@
 				9CD275F727C6225B003017CD /* CalendarDetailViewModel.swift in Sources */,
 				9CD275E527C20B06003017CD /* CommentVC.swift in Sources */,
 				9C58982927BB25920088F0DE /* HomeViewModel.swift in Sources */,
+				9CD2764D27CCC6B7003017CD /* SignUpVC.swift in Sources */,
 				9CD2764627C84D87003017CD /* MyPageVC.swift in Sources */,
 				9CD275E127C20247003017CD /* PlusVC.swift in Sources */,
 				9CD275F027C24570003017CD /* ApiResponseModel.swift in Sources */,
