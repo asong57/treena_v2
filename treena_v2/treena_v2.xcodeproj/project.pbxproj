@@ -37,6 +37,7 @@
 		9CD2764627C84D87003017CD /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2764527C84D87003017CD /* MyPageVC.swift */; };
 		9CD2764827C850C6003017CD /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2764727C850C6003017CD /* MyPageViewModel.swift */; };
 		9CD2764D27CCC6B7003017CD /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2764C27CCC6B7003017CD /* SignUpVC.swift */; };
+		9CD2765027CCE463003017CD /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2764F27CCE463003017CD /* SignUpViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		9CD2764527C84D87003017CD /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		9CD2764727C850C6003017CD /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
 		9CD2764C27CCC6B7003017CD /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		9CD2764F27CCE463003017CD /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		DD06675BAC97AF4831BC9182 /* Pods_treena_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_treena_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -363,6 +365,7 @@
 		9CD2764A27CCC693003017CD /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				9CD2764E27CCE453003017CD /* ViewGroup */,
 				9CD2764B27CCC6AB003017CD /* View */,
 			);
 			path = SignUp;
@@ -374,6 +377,14 @@
 				9CD2764C27CCC6B7003017CD /* SignUpVC.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		9CD2764E27CCE453003017CD /* ViewGroup */ = {
+			isa = PBXGroup;
+			children = (
+				9CD2764F27CCE463003017CD /* SignUpViewModel.swift */,
+			);
+			path = ViewGroup;
 			sourceTree = "<group>";
 		};
 		AC892035AAE9D0090A2FCE87 /* Frameworks */ = {
@@ -523,6 +534,7 @@
 				9CD275F027C24570003017CD /* ApiResponseModel.swift in Sources */,
 				9C58984A27BF86D60088F0DE /* DatabaseNetwork.swift in Sources */,
 				9CD275E827C20FC2003017CD /* PlusViewModel.swift in Sources */,
+				9CD2765027CCE463003017CD /* SignUpViewModel.swift in Sources */,
 				9C58985427BFAE660088F0DE /* LoginViewModel.swift in Sources */,
 				9C58984527BF84320088F0DE /* ImageUrl.swift in Sources */,
 			);

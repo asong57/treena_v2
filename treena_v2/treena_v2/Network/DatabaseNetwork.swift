@@ -148,4 +148,18 @@ class DatabaseNetwork {
             }
         })*/
     }
+    
+    func singUpUser(name: String){
+        // 데이터베이스에 회원정보 저장
+        if Auth.auth().currentUser != nil {
+            let value: [String: Any] = [ "uid" : uid, "email" : email, "name": name]
+            self.ref.child("Users").child(uid).setValue(value)
+            print("uid : \(uid)")
+            print("email : \(email)")
+            print("name: \(name)")
+            print("database saved")
+        } else{
+            print("user is nil")
+        }
+    }
 }

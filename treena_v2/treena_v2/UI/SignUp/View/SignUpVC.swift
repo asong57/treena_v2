@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 class SignUpVC: UIViewController {
-   // private let viewModel = LoginViewModel()
+    private let viewModel = SignUpViewModel()
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -67,6 +67,11 @@ class SignUpVC: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.setImage(UIImage(named: "blackbox"), for: .normal)
         return button
+    }()
+    
+    private lazy var errorLabel: UILabel = {
+        let label = UILabel()
+        return label
     }()
 }
 extension SignUpVC {
@@ -125,9 +130,27 @@ extension SignUpVC {
             make.height.equalTo(30)
             make.top.equalTo(passwordNoticeLabel.snp.bottom).offset(20)
         }
+        
+        view.addSubview(errorLabel)
+        errorLabel.snp.makeConstraints{ make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(signUpButton.snp.bottom).offset(30)
+        }
     }
     
     private func bindUIWithView(){
-
+        nameTextField.rx.text.orEmpty.bind(to: viewModel.input.name).disposed(by: disposeBag)
+        emailTextField.rx.text.orEmpty.bind(to: viewModel.input.email).disposed(by: disposeBag)
+        passwordTextField.rx.text.orEmpty.bind(to: viewModel.input.password).disposed(by: disposeBag)
+        passwordCheckTextField.rx.text.orEmpty.bind(to: viewModel.input.passwordCheck).disposed(by: disposeBag)
+        signUpButton.rx.tap.bind(to: viewModel.input.tapSignUp).disposed(by: disposeBag)
+        
+        viewModel.output.errorMessage.observe(on: MainScheduler.instance).bind(to: errorLabel.rx.text).disposed(by: disposeBag)
+        viewModel.output.goToLogin.observe(on: MainScheduler.instance).bind (onNext: { [weak self] in
+            let loginVC = LoginVC()
+            loginVC.view.backgroundColor = .white
+            self?.navigationController!.navigationBar.isHidden = true
+            self?.navigationController!.pushViewController(loginVC, animated: true)
+        }).disposed(by: disposeBag)
     }
 }
