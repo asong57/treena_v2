@@ -26,9 +26,24 @@ class CommentVC: UIViewController {
 
     private lazy var commentLabel: UILabel = {
         let label = UILabel()
+        /*
+        let strokeTextAttributes = [
+            NSAttributedString.Key.strokeColor : UIColor.white,
+            NSAttributedString.Key.foregroundColor : UIColor.black,
+            NSAttributedString.Key.strokeWidth : -4.0,
+            NSAttributedString.Key.font : UIFont(name: "THEAppleM", size: 18)
+        ] as [NSAttributedString.Key : Any]
+        label.attributedText = NSMutableAttributedString(string: " ", attributes: strokeTextAttributes)*/
         label.text = " "
-        label.textColor = .black
+        label.font = UIFont(name: "THEAppleR", size: 18)
+        label.numberOfLines = 4
         return label
+    }()
+    
+    private lazy var labelView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.8)
+        return view
     }()
     
     override func viewDidLoad() {
@@ -36,26 +51,42 @@ class CommentVC: UIViewController {
         configureUI()
         bindUIWithView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
 }
 
 extension CommentVC {
     func configureUI(){
         view.addSubview(treenaImageView)
         self.treenaImageView.snp.makeConstraints{ make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 20, left: 10, bottom: 80, right: 10))
+            make.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.height.equalTo(640)
+            make.width.equalTo(360)
+        }
+        view.addSubview(labelView)
+        view.addSubview(commentLabel)
+        commentLabel.snp.makeConstraints{ make in
+            make.top.equalTo(self.view).offset(80)
+            make.left.equalTo(self.view).offset(30)
+            make.width.equalTo(170)
+        }
+        
+        labelView.snp.makeConstraints{ make in
+            make.top.equalTo(commentLabel)
+            make.left.equalTo(commentLabel)
+            make.height.width.equalTo(commentLabel)
         }
         
         view.addSubview(homeButton)
         homeButton.snp.makeConstraints{ make in
-            make.bottom.equalTo(self.view).offset(-60)
+            make.bottom.equalTo(self.view).offset(-70)
             make.right.equalTo(self.view).offset(-40)
-            make.width.height.equalTo(45)
-        }
-        
-        view.addSubview(commentLabel)
-        commentLabel.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(15)
-            make.left.equalTo(self.view).offset(10)
+            make.height.equalTo(50)
+            make.width.equalTo(55)
         }
     }
     

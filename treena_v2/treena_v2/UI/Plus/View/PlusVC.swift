@@ -68,6 +68,13 @@ class PlusVC: UIViewController {
         configureUI()
         bindUIWithView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationController?.navigationBar.topItem?.title = ""
+    }
 }
 
 extension PlusVC {
@@ -128,6 +135,7 @@ extension PlusVC {
                 let commentVC = CommentVC()
                 commentVC.view.backgroundColor = .white
                 commentVC.viewModel.emotionResult.accept(emotion)
+                self?.navigationController?.navigationBar.isHidden = true
                 self?.navigationController?.pushViewController(commentVC, animated: true)
             }
         }).disposed(by: disposeBag)

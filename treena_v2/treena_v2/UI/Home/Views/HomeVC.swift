@@ -48,13 +48,21 @@ class HomeVC: UIViewController {
         configureUI()
         bindUIWithView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
 }
 
 extension HomeVC {
     func configureUI(){
         view.addSubview(treeImageView)
         self.treeImageView.snp.makeConstraints{ make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 150, left: 50, bottom: 150, right: 50))
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.height.equalTo(500)
+            make.width.equalTo(360)
         }
         
         view.addSubview(logoImageView)
@@ -102,9 +110,6 @@ extension HomeVC {
             .subscribe(onNext:  { [weak self] in
                 let plusVC = PlusVC()
                 plusVC.view.backgroundColor = .white
-                self?.navigationController?.navigationBar.isHidden = false
-                self?.navigationController?.navigationBar.tintColor = .black
-                self?.navigationController?.navigationBar.topItem?.title = ""
                 self?.navigationController?.pushViewController(plusVC, animated: true)
             }).disposed(by: disposeBag)
         

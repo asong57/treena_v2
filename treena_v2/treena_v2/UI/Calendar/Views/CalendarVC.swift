@@ -24,6 +24,11 @@ class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
         bindUIWithView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     private lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "treena_logo")
