@@ -19,6 +19,13 @@ class MyPageVC: UIViewController{
         bindUIWithView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationController?.navigationBar.topItem?.title = ""
+    }
+    
     private lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "treena_logo")
@@ -28,6 +35,7 @@ class MyPageVC: UIViewController{
     private lazy var logoutButton: UIButton = {
         let button = UIButton()
         button.setTitle("로그아웃", for: .normal)
+        button.titleLabel?.font = UIFont(name: "THEAppleR", size: 18)
         button.setTitleColor(.black, for: .normal)
         return button
     }()
@@ -35,6 +43,7 @@ class MyPageVC: UIViewController{
     private lazy var resetPasswordButton: UIButton = {
         let button = UIButton()
         button.setTitle("비밀번호 변경", for: .normal)
+        button.titleLabel?.font = UIFont(name: "THEAppleR", size: 18)
         button.setTitleColor(.black, for: .normal)
         return button
     }()
@@ -42,6 +51,7 @@ class MyPageVC: UIViewController{
     private lazy var deleteUserButton: UIButton = {
         let button = UIButton()
         button.setTitle("탈퇴", for: .normal)
+        button.titleLabel?.font = UIFont(name: "THEAppleR", size: 18)
         button.setTitleColor(.black, for: .normal)
         return button
     }()
@@ -57,19 +67,19 @@ class MyPageVC: UIViewController{
 
         view.addSubview(logoutButton)
         logoutButton.snp.makeConstraints{ make in
-            make.top.equalTo(self.logoImageView.snp.bottom).offset(60)
+            make.top.equalTo(self.logoImageView.snp.bottom).offset(40)
             make.centerX.equalToSuperview()
         }
         
         view.addSubview(resetPasswordButton)
         resetPasswordButton.snp.makeConstraints{ make in
-            make.top.equalTo(self.logoutButton.snp.bottom).offset(40)
+            make.top.equalTo(self.logoutButton.snp.bottom).offset(30)
             make.centerX.equalToSuperview()
         }
         
         view.addSubview(deleteUserButton)
         deleteUserButton.snp.makeConstraints{ make in
-            make.top.equalTo(self.resetPasswordButton.snp.bottom).offset(40)
+            make.top.equalTo(self.resetPasswordButton.snp.bottom).offset(30)
             make.centerX.equalToSuperview()
         }
     }

@@ -63,7 +63,7 @@ class CalendarDetailVC: UIViewController {
     
     private lazy var textView: UITextView = {
         let textView: UITextView = UITextView()
-        textView.layer.borderWidth = 1.3
+        textView.layer.borderWidth = 1.1
         textView.layer.borderColor = UIColor.black.cgColor
         textView.font = UIFont(name: "THEAppleR", size: 17)
         return textView

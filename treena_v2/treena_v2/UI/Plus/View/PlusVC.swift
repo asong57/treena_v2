@@ -38,7 +38,7 @@ class PlusVC: UIViewController {
     private lazy var textView: UITextView = {
         let textView: UITextView = UITextView()
         textView.text = "오늘은 어떤 일이 있었나요? \n 오늘 느꼈던 감정에 집중하면서 감정 단어(ex. 행복했다. 슬펐다. 놀랐다)를 사용해서 일기를 작성해 보세요."
-        textView.layer.borderWidth = 1.3
+        textView.layer.borderWidth = 1.1
         textView.layer.borderColor = UIColor.black.cgColor
         textView.font = UIFont(name: "THEAppleR", size: 17)
         textView.textColor = UIColor.lightGray
