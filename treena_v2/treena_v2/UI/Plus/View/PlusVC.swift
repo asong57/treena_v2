@@ -21,7 +21,7 @@ class PlusVC: UIViewController {
     
     private lazy var mypageButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "profile"), for: .normal)
+        button.setImage(UIImage(named: "profile2"), for: .normal)
         return button
     }()
     
@@ -29,6 +29,7 @@ class PlusVC: UIViewController {
         let label = UILabel()
         var formatter = DateFormatter()
         formatter.dateFormat = "yyyy년 M월 dd일"
+        label.font = UIFont(name: "THEAppleM", size: 16)
         label.text = formatter.string(from: Date())
         label.textColor = .black
         return label
@@ -37,9 +38,9 @@ class PlusVC: UIViewController {
     private lazy var textView: UITextView = {
         let textView: UITextView = UITextView()
         textView.text = "오늘은 어떤 일이 있었나요? \n 오늘 느꼈던 감정에 집중하면서 감정 단어(ex. 행복했다. 슬펐다. 놀랐다)를 사용해서 일기를 작성해 보세요."
-        textView.layer.borderWidth = 1
+        textView.layer.borderWidth = 1.3
         textView.layer.borderColor = UIColor.black.cgColor
-        textView.font = UIFont.systemFont(ofSize: 20.0)
+        textView.font = UIFont(name: "THEAppleR", size: 17)
         textView.textColor = UIColor.lightGray
         textView.textAlignment = NSTextAlignment.left
         return textView
@@ -48,6 +49,7 @@ class PlusVC: UIViewController {
     private lazy var temporarySaveButton: UIButton = {
         let button = UIButton()
         button.setTitle("임시저장", for: .normal)
+        button.titleLabel?.font = UIFont(name: "THEAppleM", size: 18)
         button.setTitleColor(.black, for: .normal)
         return button
     }()
@@ -55,6 +57,7 @@ class PlusVC: UIViewController {
     private lazy var saveButton: UIButton = {
         let button = UIButton()
         button.setTitle("저장", for: .normal)
+        button.titleLabel?.font = UIFont(name: "THEAppleM", size: 18)
         button.setTitleColor(.black, for: .normal)
         return button
     }()
@@ -71,7 +74,7 @@ extension PlusVC {
     func configureUI(){
         view.addSubview(logoImageView)
         logoImageView.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(30)
+            make.top.equalTo(self.view).offset(40)
             make.centerX.equalToSuperview()
             make.width.equalTo(100)
             make.height.equalTo(50)
@@ -79,9 +82,10 @@ extension PlusVC {
         
         view.addSubview(mypageButton)
         mypageButton.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(30)
+            make.top.equalTo(self.view).offset(40)
             make.right.equalTo(self.view.snp.right).offset(-20)
-            make.width.height.equalTo(60)
+            make.width.equalTo(75)
+            make.height.equalTo(60)
         }
         
         view.addSubview(todayLabel)
@@ -100,13 +104,13 @@ extension PlusVC {
         
         view.addSubview(temporarySaveButton)
         temporarySaveButton.snp.makeConstraints{ make in
-            make.bottom.equalTo(self.view).offset(-60)
+            make.top.equalTo(textView.snp.bottom).offset(10)
             make.left.equalTo(self.view).offset(40)
         }
         
         view.addSubview(saveButton)
         saveButton.snp.makeConstraints{ make in
-            make.bottom.equalTo(self.view).offset(-60)
+            make.top.equalTo(textView.snp.bottom).offset(10)
             make.right.equalTo(self.view).offset(-40)
         }
     }

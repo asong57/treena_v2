@@ -27,7 +27,7 @@ class HomeVC: UIViewController {
     
     private lazy var mypageButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "profile"), for: .normal)
+        button.setImage(UIImage(named: "profile2"), for: .normal)
         return button
     }()
     
@@ -54,12 +54,12 @@ extension HomeVC {
     func configureUI(){
         view.addSubview(treeImageView)
         self.treeImageView.snp.makeConstraints{ make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 100, left: 50, bottom: 180, right: 50))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 150, left: 50, bottom: 150, right: 50))
         }
         
         view.addSubview(logoImageView)
         logoImageView.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(30)
+            make.top.equalTo(self.view).offset(40)
             make.centerX.equalToSuperview()
             make.width.equalTo(100)
             make.height.equalTo(50)
@@ -67,23 +67,26 @@ extension HomeVC {
         
         view.addSubview(mypageButton)
         mypageButton.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(30)
+            make.top.equalTo(self.view).offset(40)
             make.right.equalTo(self.view.snp.right).offset(-20)
-            make.width.height.equalTo(60)
+            make.width.equalTo(75)
+            make.height.equalTo(60)
         }
         
         view.addSubview(calendarButton)
         calendarButton.snp.makeConstraints{ make in
-            make.bottom.equalTo(self.view).offset(-80)
+            make.bottom.equalTo(self.view).offset(-70)
             make.left.equalTo(self.view).offset(40)
-            make.width.height.equalTo(50)
+            make.height.equalTo(50)
+            make.width.equalTo(55)
         }
         
         view.addSubview(plusButton)
         plusButton.snp.makeConstraints{ make in
-            make.bottom.equalTo(self.view).offset(-80)
+            make.bottom.equalTo(self.view).offset(-70)
             make.right.equalTo(self.view).offset(-40)
-            make.width.height.equalTo(45)
+            make.height.equalTo(45)
+            make.width.equalTo(50)
         }
     }
     
@@ -99,6 +102,9 @@ extension HomeVC {
             .subscribe(onNext:  { [weak self] in
                 let plusVC = PlusVC()
                 plusVC.view.backgroundColor = .white
+                self?.navigationController?.navigationBar.isHidden = false
+                self?.navigationController?.navigationBar.tintColor = .black
+                self?.navigationController?.navigationBar.topItem?.title = ""
                 self?.navigationController?.pushViewController(plusVC, animated: true)
             }).disposed(by: disposeBag)
         

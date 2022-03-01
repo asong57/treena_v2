@@ -28,6 +28,7 @@ class SignUpVC: UIViewController {
     private lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = " Name"
+        textField.font = UIFont(name: "THEAppleR", size: 20)
         textField.background = UIImage(named: "loginbox")
         return textField
     }()
@@ -35,6 +36,7 @@ class SignUpVC: UIViewController {
     private lazy var emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = " Email"
+        textField.font = UIFont(name: "THEAppleR", size: 20)
         textField.background = UIImage(named: "loginbox")
         return textField
     }()
@@ -42,6 +44,7 @@ class SignUpVC: UIViewController {
     private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = " Password"
+        textField.font = UIFont(name: "THEAppleR", size: 20)
         textField.background = UIImage(named: "loginbox")
         textField.isSecureTextEntry = true
         return textField
@@ -50,6 +53,7 @@ class SignUpVC: UIViewController {
     private lazy var passwordCheckTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = " Password Check"
+        textField.font = UIFont(name: "THEAppleR", size: 20)
         textField.background = UIImage(named: "loginbox")
         textField.isSecureTextEntry = true
         return textField
@@ -57,7 +61,8 @@ class SignUpVC: UIViewController {
     
     private lazy var passwordNoticeLabel: UILabel = {
         let label = UILabel()
-        label.text = "비밀번호는 6글자 이상으로 설정해주세요."
+        label.text = "* 비밀번호는 6글자 이상으로 설정해주세요."
+        label.font = UIFont(name: "THEAppleL", size: 14)
         return label
     }()
     
@@ -65,12 +70,14 @@ class SignUpVC: UIViewController {
         let button = UIButton()
         button.setTitle("회원가입", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.setImage(UIImage(named: "blackbox"), for: .normal)
+        button.setImage(UIImage(named: "signup_black"), for: .normal)
         return button
     }()
     
     private lazy var errorLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont(name: "THEAppleR", size: 15)
+        label.textColor = UIColor(red: 26/255, green: 153/255, blue: 13/255, alpha: 1)
         return label
     }()
 }
@@ -88,7 +95,8 @@ extension SignUpVC {
         nameTextField.snp.makeConstraints{ make in
             make.top.equalTo(self.view).offset(240)
             make.centerX.equalToSuperview()
-            make.width.equalTo(270)
+            make.left.equalTo(self.view).offset(53)
+            make.right.equalTo(self.view).offset(-53)
             make.height.equalTo(30)
         }
         
@@ -96,7 +104,8 @@ extension SignUpVC {
         emailTextField.snp.makeConstraints{ make in
             make.top.equalTo(self.view).offset(280)
             make.centerX.equalToSuperview()
-            make.width.equalTo(270)
+            make.left.equalTo(self.view).offset(53)
+            make.right.equalTo(self.view).offset(-53)
             make.height.equalTo(30)
         }
         
@@ -104,7 +113,8 @@ extension SignUpVC {
         passwordTextField.snp.makeConstraints{ make in
             make.top.equalTo(self.view).offset(320)
             make.centerX.equalToSuperview()
-            make.width.equalTo(270)
+            make.left.equalTo(self.view).offset(53)
+            make.right.equalTo(self.view).offset(-53)
             make.height.equalTo(30)
         }
         
@@ -112,7 +122,8 @@ extension SignUpVC {
         passwordCheckTextField.snp.makeConstraints{ make in
             make.top.equalTo(self.view).offset(360)
             make.centerX.equalToSuperview()
-            make.width.equalTo(270)
+            make.left.equalTo(self.view).offset(53)
+            make.right.equalTo(self.view).offset(-53)
             make.height.equalTo(30)
         }
         
@@ -120,13 +131,14 @@ extension SignUpVC {
         passwordNoticeLabel.snp.makeConstraints{ make in
             make.centerX.equalToSuperview()
             make.height.equalTo(30)
-            make.top.equalTo(passwordCheckTextField.snp.bottom).offset(10)
+            make.left.equalTo(self.view).offset(53)
+            make.top.equalTo(passwordCheckTextField.snp.bottom).offset(1)
         }
         
         view.addSubview(signUpButton)
         signUpButton.snp.makeConstraints{ make in
             make.centerX.equalToSuperview()
-            make.width.equalTo(70)
+            make.width.equalTo(90)
             make.height.equalTo(30)
             make.top.equalTo(passwordNoticeLabel.snp.bottom).offset(20)
         }

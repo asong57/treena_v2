@@ -28,6 +28,7 @@ class LoginVC: UIViewController {
     private lazy var emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = " Email"
+        textField.font = UIFont(name: "THEAppleR", size: 20)
         textField.background = UIImage(named: "loginbox")
         return textField
     }()
@@ -35,6 +36,7 @@ class LoginVC: UIViewController {
     private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = " Password"
+        textField.font = UIFont(name: "THEAppleR", size: 20)
         textField.background = UIImage(named: "loginbox")
         textField.isSecureTextEntry = true
         return textField
@@ -42,20 +44,21 @@ class LoginVC: UIViewController {
     
     private lazy var loginButton: UIButton = {
         let button = UIButton()
-        button.setTitle("로그인", for: .normal)
+        button.setImage(UIImage(named: "login_black"), for: .normal)
         button.setTitleColor(.black, for: .normal)
         return button
     }()
     
-    private lazy var registerButton: UIButton = {
+    private lazy var signUpButton: UIButton = {
         let button = UIButton()
-        button.setTitle("회원가입", for: .normal)
+        button.setImage(UIImage(named: "signup_white"), for: .normal)
         button.setTitleColor(.black, for: .normal)
         return button
     }()
     
     private lazy var errorLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont(name: "THEAppleR", size: 15)
         return label
     }()
 }
@@ -69,43 +72,43 @@ extension LoginVC {
             make.height.equalTo(70)
         }
         
-        view.addSubview(loginButton)
-        loginButton.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(400)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(50)
-            make.height.equalTo(30)
-        }
-        
-        view.addSubview(registerButton)
-        registerButton.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(450)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(70)
-            make.height.equalTo(30)
-        }
-        
         view.addSubview(emailTextField)
         emailTextField.snp.makeConstraints{ make in
             make.top.equalTo(self.view).offset(280)
             make.centerX.equalToSuperview()
-            make.width.equalTo(270)
+            make.left.equalTo(self.view).offset(53)
+            make.right.equalTo(self.view).offset(-53)
             make.height.equalTo(30)
         }
         
         view.addSubview(passwordTextField)
         passwordTextField.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(320)
+            make.top.equalTo(emailTextField.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
-            make.width.equalTo(270)
+            make.left.equalTo(self.view).offset(53)
+            make.right.equalTo(self.view).offset(-53)
             make.height.equalTo(30)
         }
         
         view.addSubview(errorLabel)
         errorLabel.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(370)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
-            make.width.equalTo(270)
+        }
+        
+        view.addSubview(loginButton)
+        loginButton.snp.makeConstraints{ make in
+            make.top.equalTo(passwordTextField.snp.bottom).offset(40)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(90)
+            make.height.equalTo(30)
+        }
+        
+        view.addSubview(signUpButton)
+        signUpButton.snp.makeConstraints{ make in
+            make.top.equalTo(loginButton.snp.bottom).offset(10)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(90)
             make.height.equalTo(30)
         }
     }
@@ -123,10 +126,12 @@ extension LoginVC {
             self?.navigationController!.pushViewController(homeVC, animated: true)
         }).disposed(by: disposeBag)
         
-        registerButton.rx.tap
+        signUpButton.rx.tap
             .subscribe(onNext:  { [weak self] in
                 let signUpVC = SignUpVC()
                 signUpVC.view.backgroundColor = .white
+                self?.navigationController?.navigationBar.tintColor = .black
+                self?.navigationController?.navigationBar.topItem?.title = ""
                 self?.navigationController?.pushViewController(signUpVC, animated: true)
             }).disposed(by: disposeBag)
     }

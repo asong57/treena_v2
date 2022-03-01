@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>THEapplemintR.otf</string>
+		<string>THEapplemintM.otf</string>
+		<string>THEapplemintL.otf</string>
+		<string>theletssmilel.ttf</string>
+		<string>theletssmilem</string>
+		<string>theletssmiler</string>
+		<string>unbeenamsoyoung</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

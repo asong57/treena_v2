@@ -28,7 +28,7 @@ class CalendarDetailVC: UIViewController {
     
     private lazy var mypageButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "profile"), for: .normal)
+        button.setImage(UIImage(named: "profile2"), for: .normal)
         return button
     }()
     
@@ -49,22 +49,23 @@ class CalendarDetailVC: UIViewController {
         var formatter = DateFormatter()
         formatter.dateFormat = "yyyy년 M월 dd일"
         label.text = formatter.string(from: Date())
+        label.font = UIFont(name: "THEAppleM", size: 16)
         label.textColor = .black
         return label
     }()
     
     private lazy var textView: UITextView = {
         let textView: UITextView = UITextView()
-        textView.layer.borderWidth = 1
+        textView.layer.borderWidth = 1.3
         textView.layer.borderColor = UIColor.black.cgColor
-        textView.font = UIFont.systemFont(ofSize: 20.0)
-        textView.textAlignment = NSTextAlignment.left
+        textView.font = UIFont(name: "THEAppleR", size: 17)
         return textView
     }()
     
     private lazy var deleteButton: UIButton = {
         let button = UIButton()
         button.setTitle("삭제", for: .normal)
+        button.titleLabel?.font = UIFont(name: "THEAppleM", size: 18)
         button.setTitleColor(.black, for: .normal)
         return button
     }()
@@ -73,6 +74,7 @@ class CalendarDetailVC: UIViewController {
         let button = UIButton()
         button.setTitle("임시저장", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont(name: "THEAppleM", size: 18)
         return button
     }()
     
@@ -80,13 +82,14 @@ class CalendarDetailVC: UIViewController {
         let button = UIButton()
         button.setTitle("저장", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont(name: "THEAppleM", size: 18)
         return button
     }()
     
     func configureUI(){
         view.addSubview(logoImageView)
         logoImageView.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(30)
+            make.top.equalTo(self.view).offset(40)
             make.centerX.equalToSuperview()
             make.width.equalTo(100)
             make.height.equalTo(50)
@@ -94,14 +97,15 @@ class CalendarDetailVC: UIViewController {
         
         view.addSubview(mypageButton)
         mypageButton.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(30)
+            make.top.equalTo(self.view).offset(40)
             make.right.equalTo(self.view.snp.right).offset(-20)
-            make.width.height.equalTo(60)
+            make.width.equalTo(75)
+            make.height.equalTo(60)
         }
         
         view.addSubview(dateLabel)
         dateLabel.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(107)
+            make.top.equalTo(self.view).offset(109)
             make.centerX.equalToSuperview()
         }
         
@@ -121,26 +125,26 @@ class CalendarDetailVC: UIViewController {
         
         view.addSubview(textView)
         textView.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(130)
+            make.top.equalTo(dateLabel.snp.bottom).offset(15)
             make.left.equalTo(self.view)
             make.right.equalTo(self.view)
             make.bottom.equalTo(self.view).offset(-100)
         }
         view.addSubview(deleteButton)
         deleteButton.snp.makeConstraints{ make in
-            make.bottom.equalTo(self.view).offset(-60)
+            make.top.equalTo(textView.snp.bottom).offset(10)
             make.left.equalTo(self.view).offset(40)
         }
         
         view.addSubview(temporarySaveButton)
         temporarySaveButton.snp.makeConstraints{ make in
-            make.bottom.equalTo(self.view).offset(-60)
+            make.top.equalTo(textView.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
         }
         
         view.addSubview(saveButton)
         saveButton.snp.makeConstraints{ make in
-            make.bottom.equalTo(self.view).offset(-60)
+            make.top.equalTo(textView.snp.bottom).offset(10)
             make.right.equalTo(self.view).offset(-40)
         }
     }

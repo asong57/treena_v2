@@ -38,6 +38,9 @@
 		9CD2764827C850C6003017CD /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2764727C850C6003017CD /* MyPageViewModel.swift */; };
 		9CD2764D27CCC6B7003017CD /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2764C27CCC6B7003017CD /* SignUpVC.swift */; };
 		9CD2765027CCE463003017CD /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2764F27CCE463003017CD /* SignUpViewModel.swift */; };
+		9CD2765D27CDE8FF003017CD /* THEapplemintR.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CD2765C27CDE8FF003017CD /* THEapplemintR.otf */; };
+		9CD2765F27CDECDE003017CD /* THEapplemintL.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CD2765E27CDECDE003017CD /* THEapplemintL.otf */; };
+		9CD2766127CDED04003017CD /* THEapplemintM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CD2766027CDED04003017CD /* THEapplemintM.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +78,9 @@
 		9CD2764727C850C6003017CD /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
 		9CD2764C27CCC6B7003017CD /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		9CD2764F27CCE463003017CD /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		9CD2765C27CDE8FF003017CD /* THEapplemintR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = THEapplemintR.otf; sourceTree = "<group>"; };
+		9CD2765E27CDECDE003017CD /* THEapplemintL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = THEapplemintL.otf; path = ../../../../../../../../../../Users/asong/Downloads/THEapplemintL.otf; sourceTree = "<group>"; };
+		9CD2766027CDED04003017CD /* THEapplemintM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = THEapplemintM.otf; path = ../../../../../../../../../../Users/asong/Downloads/THEapplemintM.otf; sourceTree = "<group>"; };
 		DD06675BAC97AF4831BC9182 /* Pods_treena_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_treena_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -132,6 +138,7 @@
 		9C58982227B9EA180088F0DE /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				9CD2765327CDC964003017CD /* Font */,
 				9C58982327B9F0E30088F0DE /* Storyboard */,
 				9C58981727B9E9E00088F0DE /* Assets.xcassets */,
 				9C58980E27B9E9DE0088F0DE /* AppDelegate.swift */,
@@ -387,6 +394,16 @@
 			path = ViewGroup;
 			sourceTree = "<group>";
 		};
+		9CD2765327CDC964003017CD /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				9CD2765E27CDECDE003017CD /* THEapplemintL.otf */,
+				9CD2766027CDED04003017CD /* THEapplemintM.otf */,
+				9CD2765C27CDE8FF003017CD /* THEapplemintR.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		AC892035AAE9D0090A2FCE87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,11 +472,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CD2766127CDED04003017CD /* THEapplemintM.otf in Resources */,
 				9C58981B27B9E9E00088F0DE /* LaunchScreen.storyboard in Resources */,
 				9CD275FE27C71D75003017CD /* emotion_result.json in Resources */,
 				9C58984727BF85D20088F0DE /* GoogleService-Info.plist in Resources */,
 				9C58981827B9E9E00088F0DE /* Assets.xcassets in Resources */,
+				9CD2765F27CDECDE003017CD /* THEapplemintL.otf in Resources */,
 				9C58981627B9E9DE0088F0DE /* Main.storyboard in Resources */,
+				9CD2765D27CDE8FF003017CD /* THEapplemintR.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,6 +706,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CHQLLQPH65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = treena_v2/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -714,6 +735,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CHQLLQPH65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = treena_v2/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
