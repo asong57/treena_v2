@@ -53,9 +53,7 @@ class CalendarDetailVC: UIViewController {
     
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
-        var formatter = DateFormatter()
-        formatter.dateFormat = "yyyy년 M월 dd일"
-        label.text = formatter.string(from: Date())
+        label.text = ""
         label.font = UIFont(name: "THEAppleM", size: 16)
         label.textColor = .black
         return label
