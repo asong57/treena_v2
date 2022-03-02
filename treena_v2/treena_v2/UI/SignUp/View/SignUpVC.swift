@@ -30,6 +30,7 @@ class SignUpVC: UIViewController {
         textField.placeholder = " Name"
         textField.font = UIFont(name: "THEAppleR", size: 20)
         textField.background = UIImage(named: "loginbox")
+        textField.setLeftPaddingPoints(7)
         return textField
     }()
     
@@ -38,6 +39,7 @@ class SignUpVC: UIViewController {
         textField.placeholder = " Email"
         textField.font = UIFont(name: "THEAppleR", size: 20)
         textField.background = UIImage(named: "loginbox")
+        textField.setLeftPaddingPoints(7)
         return textField
     }()
     
@@ -47,6 +49,7 @@ class SignUpVC: UIViewController {
         textField.font = UIFont(name: "THEAppleR", size: 20)
         textField.background = UIImage(named: "loginbox")
         textField.isSecureTextEntry = true
+        textField.setLeftPaddingPoints(7)
         return textField
     }()
     
@@ -56,6 +59,7 @@ class SignUpVC: UIViewController {
         textField.font = UIFont(name: "THEAppleR", size: 20)
         textField.background = UIImage(named: "loginbox")
         textField.isSecureTextEntry = true
+        textField.setLeftPaddingPoints(7)
         return textField
     }()
     

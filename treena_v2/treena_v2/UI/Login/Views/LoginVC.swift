@@ -30,6 +30,9 @@ class LoginVC: UIViewController {
         textField.placeholder = " Email"
         textField.font = UIFont(name: "THEAppleR", size: 20)
         textField.background = UIImage(named: "loginbox")
+        // TextField 앞에 여백 주기
+        textField.setLeftPaddingPoints(7)
+
         return textField
     }()
     
@@ -39,6 +42,7 @@ class LoginVC: UIViewController {
         textField.font = UIFont(name: "THEAppleR", size: 20)
         textField.background = UIImage(named: "loginbox")
         textField.isSecureTextEntry = true
+        textField.setLeftPaddingPoints(7)
         return textField
     }()
     
@@ -136,3 +140,4 @@ extension LoginVC {
             }).disposed(by: disposeBag)
     }
 }
+

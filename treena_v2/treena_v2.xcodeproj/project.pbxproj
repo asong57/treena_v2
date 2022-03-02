@@ -41,6 +41,7 @@
 		9CD2765D27CDE8FF003017CD /* THEapplemintR.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CD2765C27CDE8FF003017CD /* THEapplemintR.otf */; };
 		9CD2765F27CDECDE003017CD /* THEapplemintL.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CD2765E27CDECDE003017CD /* THEapplemintL.otf */; };
 		9CD2766127CDED04003017CD /* THEapplemintM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CD2766027CDED04003017CD /* THEapplemintM.otf */; };
+		9CD2766727CF4F77003017CD /* UITextField+LeftPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2766627CF4F77003017CD /* UITextField+LeftPadding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		9CD2765C27CDE8FF003017CD /* THEapplemintR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = THEapplemintR.otf; sourceTree = "<group>"; };
 		9CD2765E27CDECDE003017CD /* THEapplemintL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = THEapplemintL.otf; path = ../../../../../../../../../../Users/asong/Downloads/THEapplemintL.otf; sourceTree = "<group>"; };
 		9CD2766027CDED04003017CD /* THEapplemintM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = THEapplemintM.otf; path = ../../../../../../../../../../Users/asong/Downloads/THEapplemintM.otf; sourceTree = "<group>"; };
+		9CD2766627CF4F77003017CD /* UITextField+LeftPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+LeftPadding.swift"; sourceTree = "<group>"; };
 		DD06675BAC97AF4831BC9182 /* Pods_treena_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_treena_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -126,6 +128,7 @@
 		9C58980D27B9E9DE0088F0DE /* treena_v2 */ = {
 			isa = PBXGroup;
 			children = (
+				9CD2766427CF4F34003017CD /* Util */,
 				9C58984827BF86C40088F0DE /* Network */,
 				9C58981C27B9E9E00088F0DE /* Info.plist */,
 				9C58984627BF85D20088F0DE /* GoogleService-Info.plist */,
@@ -404,6 +407,22 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		9CD2766427CF4F34003017CD /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				9CD2766527CF4F44003017CD /* Extension */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		9CD2766527CF4F44003017CD /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9CD2766627CF4F77003017CD /* UITextField+LeftPadding.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		AC892035AAE9D0090A2FCE87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CD2766727CF4F77003017CD /* UITextField+LeftPadding.swift in Sources */,
 				9C58982D27BB2AA80088F0DE /* CalendarVC.swift in Sources */,
 				9C58981327B9E9DE0088F0DE /* HomeVC.swift in Sources */,
 				9C58984D27BF8AA30088F0DE /* TreeLevel.swift in Sources */,
