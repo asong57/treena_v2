@@ -38,13 +38,7 @@ class PlusVC: UIViewController {
     private lazy var textView: UITextView = {
         let textView: UITextView = UITextView()
         textView.text = "오늘은 어떤 일이 있었나요? \n 오늘 느꼈던 감정에 집중하면서 감정 단어(ex. 행복했다. 슬펐다. 놀랐다)를 사용해서 일기를 작성해 보세요."
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = 8
-        let attributedString = NSMutableAttributedString(string: textView.text)
-        attributedString.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1.5), range: NSRange(location: 0, length: attributedString.length))
-        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: NSRange(location: 0, length: attributedString.length))
-        textView.attributedText = attributedString
-        
+        textView.setLineAndLetterSpacing(textView.text)
         textView.font = UIFont(name: "THEAppleR", size: 17)
         textView.layer.borderWidth = 1.1
         textView.layer.borderColor = UIColor.black.cgColor

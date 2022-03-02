@@ -42,6 +42,7 @@
 		9CD2765F27CDECDE003017CD /* THEapplemintL.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CD2765E27CDECDE003017CD /* THEapplemintL.otf */; };
 		9CD2766127CDED04003017CD /* THEapplemintM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CD2766027CDED04003017CD /* THEapplemintM.otf */; };
 		9CD2766727CF4F77003017CD /* UITextField+LeftPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2766627CF4F77003017CD /* UITextField+LeftPadding.swift */; };
+		9CD2766927CF550B003017CD /* UITextView+LineAndLetterSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2766827CF550B003017CD /* UITextView+LineAndLetterSpacing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		9CD2765E27CDECDE003017CD /* THEapplemintL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = THEapplemintL.otf; path = ../../../../../../../../../../Users/asong/Downloads/THEapplemintL.otf; sourceTree = "<group>"; };
 		9CD2766027CDED04003017CD /* THEapplemintM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = THEapplemintM.otf; path = ../../../../../../../../../../Users/asong/Downloads/THEapplemintM.otf; sourceTree = "<group>"; };
 		9CD2766627CF4F77003017CD /* UITextField+LeftPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+LeftPadding.swift"; sourceTree = "<group>"; };
+		9CD2766827CF550B003017CD /* UITextView+LineAndLetterSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+LineAndLetterSpacing.swift"; sourceTree = "<group>"; };
 		DD06675BAC97AF4831BC9182 /* Pods_treena_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_treena_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -419,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				9CD2766627CF4F77003017CD /* UITextField+LeftPadding.swift */,
+				9CD2766827CF550B003017CD /* UITextView+LineAndLetterSpacing.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				9CD2766727CF4F77003017CD /* UITextField+LeftPadding.swift in Sources */,
 				9C58982D27BB2AA80088F0DE /* CalendarVC.swift in Sources */,
 				9C58981327B9E9DE0088F0DE /* HomeVC.swift in Sources */,
+				9CD2766927CF550B003017CD /* UITextView+LineAndLetterSpacing.swift in Sources */,
 				9C58984D27BF8AA30088F0DE /* TreeLevel.swift in Sources */,
 				9CD275F427C619AF003017CD /* CalendarDetailVC.swift in Sources */,
 				9CD275ED27C243A2003017CD /* ApiNetwork.swift in Sources */,
