@@ -88,50 +88,53 @@ class SignUpVC: UIViewController {
 extension SignUpVC {
     func configureUI(){
         view.addSubview(logoImageView)
+        view.addSubview(nameTextField)
+        view.addSubview(emailTextField)
+        view.addSubview(passwordTextField)
+        view.addSubview(passwordCheckTextField)
+        view.addSubview(passwordNoticeLabel)
+        view.addSubview(signUpButton)
+        view.addSubview(errorLabel)
+        
         logoImageView.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(150)
+            make.bottom.equalTo(nameTextField.snp.top).offset(-30)
             make.centerX.equalToSuperview()
             make.width.equalTo(130)
             make.height.equalTo(70)
         }
         
-        view.addSubview(nameTextField)
         nameTextField.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(240)
+            make.bottom.equalTo(emailTextField.snp.top).offset(-10)
             make.centerX.equalToSuperview()
             make.left.equalTo(self.view).offset(53)
             make.right.equalTo(self.view).offset(-53)
             make.height.equalTo(30)
         }
         
-        view.addSubview(emailTextField)
         emailTextField.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(280)
+            make.bottom.equalTo(passwordTextField.snp.top).offset(-10)
             make.centerX.equalToSuperview()
             make.left.equalTo(self.view).offset(53)
             make.right.equalTo(self.view).offset(-53)
             make.height.equalTo(30)
         }
-        
-        view.addSubview(passwordTextField)
+       
         passwordTextField.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(320)
             make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
             make.left.equalTo(self.view).offset(53)
             make.right.equalTo(self.view).offset(-53)
             make.height.equalTo(30)
         }
         
-        view.addSubview(passwordCheckTextField)
         passwordCheckTextField.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(360)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
             make.left.equalTo(self.view).offset(53)
             make.right.equalTo(self.view).offset(-53)
             make.height.equalTo(30)
         }
         
-        view.addSubview(passwordNoticeLabel)
         passwordNoticeLabel.snp.makeConstraints{ make in
             make.centerX.equalToSuperview()
             make.height.equalTo(30)
@@ -139,7 +142,6 @@ extension SignUpVC {
             make.top.equalTo(passwordCheckTextField.snp.bottom).offset(1)
         }
         
-        view.addSubview(signUpButton)
         signUpButton.snp.makeConstraints{ make in
             make.centerX.equalToSuperview()
             make.width.equalTo(90)
@@ -147,7 +149,6 @@ extension SignUpVC {
             make.top.equalTo(passwordNoticeLabel.snp.bottom).offset(20)
         }
         
-        view.addSubview(errorLabel)
         errorLabel.snp.makeConstraints{ make in
             make.centerX.equalToSuperview()
             make.top.equalTo(signUpButton.snp.bottom).offset(30)

@@ -69,25 +69,25 @@ class LoginVC: UIViewController {
 extension LoginVC {
     func configureUI(){
         view.addSubview(logoImageView)
+        view.addSubview(emailTextField)
+        view.addSubview(passwordTextField)
         logoImageView.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(180)
+            make.bottom.equalTo(emailTextField.snp.top).offset(-30)
             make.centerX.equalToSuperview()
             make.width.equalTo(130)
             make.height.equalTo(70)
         }
         
-        view.addSubview(emailTextField)
         emailTextField.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(280)
             make.centerX.equalToSuperview()
+            make.bottom.equalTo(passwordTextField.snp.top).offset(-10)
             make.left.equalTo(self.view).offset(53)
             make.right.equalTo(self.view).offset(-53)
             make.height.equalTo(30)
         }
         
-        view.addSubview(passwordTextField)
         passwordTextField.snp.makeConstraints{ make in
-            make.top.equalTo(emailTextField.snp.bottom).offset(10)
+            make.centerY.equalToSuperview()
             make.centerX.equalToSuperview()
             make.left.equalTo(self.view).offset(53)
             make.right.equalTo(self.view).offset(-53)

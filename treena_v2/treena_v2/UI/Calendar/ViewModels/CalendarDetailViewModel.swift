@@ -30,11 +30,11 @@ class CalendarDetailViewModel: PlusViewModel{
     }
     
     func minusDate(){
-        super.todayDate.onNext(try! String(Int(todayDate.value())! - 1))
+        super.todayDate.onNext(try! checkDateException( String(Int(todayDate.value())! - 1)))
     }
     
     func plusDate(){
-        super.todayDate.onNext(try! String(Int(todayDate.value())! + 1))
+        super.todayDate.onNext(try! checkDateException(String(Int(todayDate.value())! + 1)))
     }
     
     func checkDateException(_ inputDate: String) -> String {
@@ -50,34 +50,33 @@ class CalendarDetailViewModel: PlusViewModel{
         
         let monthDates = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
         
+        if month == 2 && day > 28 {
+            month = 3
+            day = 1
+            return String(year) + "0301"
+        }
+        
         if day >= 1 && day <= 30{
             return inputDate
         }
         
-        if month == 2 && day > 28 {
-            month = 3
+        if day == 32 && (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12 ){
+            month = month+1
             day = 1
-        }
-        
-        if day == 32 {
-            if month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12 {
-                month = month+1
-                day = 1
+            if month == 13 {
+                month = 1
+                year = year+1
             }
         }
         
-        if day == 31 {
-            if month == 4 || month == 6 || month == 9 || month == 11 {
-                month = month+1
-                day = 1
-                if month == 13 {
-                    month = 1
-                    year = year+1
-                }
+        if day == 31 && (month == 4 || month == 6 || month == 9 || month == 11) {
+            month = month+1
+            day = 1
+            if month == 13 {
+                month = 1
+                year = year+1
             }
-            
         }
-        
         
         if day == 0 {
             month = month-1
@@ -93,6 +92,11 @@ class CalendarDetailViewModel: PlusViewModel{
             monthString = "0"+monthString
         }
         
-        return String(year) + monthString + String(day)
+        var dayString: String = String(day)
+        if day < 10 {
+            dayString = "0"+dayString
+        }
+        
+        return String(year) + monthString + dayString
     }
 }
