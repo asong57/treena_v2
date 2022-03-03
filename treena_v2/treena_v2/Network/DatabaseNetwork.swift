@@ -104,7 +104,7 @@ class DatabaseNetwork {
     
     // 일기 쓴 날짜 배열 가져오기
     func getDiaryDatesWithoutObserver() {
-       
+        DatabaseNetwork.datesWithDiary.removeAll()
         self.ref.child("diary").child(self.uid).getData{ (error, snapshot) in
             if let error = error {
                 print("error getting data \(error)")
