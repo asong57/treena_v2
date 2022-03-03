@@ -172,7 +172,8 @@ class CalendarDetailVC: UIViewController {
             if emotion != "" {
                 let commentVC = CommentVC()
                 commentVC.view.backgroundColor = .white
-                //self?.viewModel.emotionResult.accept(emotion)
+                commentVC.viewModel.emotionResult.accept(emotion)
+                self?.navigationController?.navigationBar.isHidden = true
                 self?.navigationController?.pushViewController(commentVC, animated: true)
             }
         }).disposed(by: disposeBag)

@@ -46,12 +46,7 @@ class PlusViewModel: HomeViewModel {
                 self?.diaryText.accept(" ")
             }
         }).disposed(by: disposeBag)
-       
-        /*
-        emotionResult.subscribe(onNext: { element in
-            print(element)
-        }).disposed(by: disposeBag)
-        */
+
         temporarySaveButtonTouched.withLatestFrom(saveData).subscribe(onNext: { event in
             DatabaseNetwork.shared.saveDiary(text: event.text, date: event.date)
         }).disposed(by: disposeBag)
