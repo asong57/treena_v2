@@ -166,6 +166,7 @@ class CalendarDetailVC: UIViewController {
         })
         saveButton.rx.tap.bind(to: viewModel.saveButtonTouched).disposed(by: disposeBag)
         temporarySaveButton.rx.tap.bind(to: viewModel.temporarySaveButtonTouched).disposed(by: disposeBag)
+        deleteButton.rx.tap.bind(to: viewModel.deleteButtonTouched).disposed(by: disposeBag)
         viewModel.emotionResult.observe(on: MainScheduler.instance).subscribe(onNext: { [weak self] emotion in
             print("PlusVC emotion : \(emotion)")
             if emotion != "" {

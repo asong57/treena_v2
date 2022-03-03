@@ -76,6 +76,11 @@ class DatabaseNetwork {
         }
     }
     
+    func deleteDiary(date: String){
+        self.ref.child("diary").child(uid).child(date).removeValue()
+        print("delete diary")
+    }
+    
     // 일기 쓴 날짜 배열 가져오기
     func getDiaryDates() -> Observable<[String]> {
         var datesWithDiary: [String] = []

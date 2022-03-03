@@ -14,11 +14,12 @@ class CalendarDetailViewModel: PlusViewModel{
     
     var beforeButtonTouched: PublishRelay<Void>
     var nextButtonTouched: PublishRelay<Void>
+    var deleteButtonTouched: PublishRelay<Void>
 
-    
     override init(){
         beforeButtonTouched = PublishRelay<Void>()
         nextButtonTouched = PublishRelay<Void>()
+        deleteButtonTouched = PublishRelay<Void>()
         super.init()
         
         beforeButtonTouched.subscribe(onNext: { [weak self] event in
@@ -26,6 +27,10 @@ class CalendarDetailViewModel: PlusViewModel{
         }).disposed(by: disposeBag)
         nextButtonTouched.subscribe(onNext: { [weak self] event in
             self?.plusDate()
+        }).disposed(by: disposeBag)
+        
+        deleteButtonTouched.subscribe(onNext: { [weak self] event in
+            DatabaseNetwork.shared.deleteDiary(date: try! self!.todayDate.value())
         }).disposed(by: disposeBag)
     }
     
