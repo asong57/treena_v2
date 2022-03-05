@@ -90,6 +90,9 @@ class MyPageVC: UIViewController{
     
     private func bindUIWithView(){
         resetPasswordButton.rx.tap.bind(to:viewModel.resetPasswordTouched).disposed(by: disposeBag)
+        viewModel.resetPasswordTouched.subscribe(onNext: { [weak self] event in
+            self?.showAlertResetPassword()
+        })
         logoutButton.rx.tap.bind(to: viewModel.logoutTouched).disposed(by: disposeBag)
         viewModel.logoutTouched.subscribe(onNext: {[weak self] event in
             let loginVC = LoginVC()
@@ -102,5 +105,16 @@ class MyPageVC: UIViewController{
             loginVC.view.backgroundColor = .white
             self?.navigationController?.pushViewController(loginVC, animated: true)
         })
+    }
+    
+    private func showAlertResetPassword(){
+        let alert = UIAlertController(title: "비밀번호 변경", message: "비밀번호 변경을 위한 이메일이 발송되었습니다.", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            let loginVC = LoginVC()
+            loginVC.view.backgroundColor = .white
+            self.navigationController?.pushViewController(loginVC, animated: true)
+        }
+        alert.addAction(okAction)
+        present(alert, animated: false, completion: nil)
     }
 }
