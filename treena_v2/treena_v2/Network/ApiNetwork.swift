@@ -41,7 +41,13 @@ class ApiNetwork {
                     do{
                         // response JSON 파싱
                         let data = try? JSONSerialization.data(withJSONObject: res, options: .prettyPrinted)
-                        let emotionAnswer: String = try! JSONDecoder().decode(ApiResponseModel.self, from: data!).answer
+                        var emotionAnswer: String = ""
+                        do {
+                            emotionAnswer = try JSONDecoder().decode(ApiResponseModel.self, from: data!).answer
+                        } catch{
+                            emotionAnswer = "neutral"
+                            print("emotion nil")
+                        }
                         observer.onNext(emotionAnswer)
                         print("ApiNetwork emotion: \(emotionAnswer)")
                     } catch(let err) {

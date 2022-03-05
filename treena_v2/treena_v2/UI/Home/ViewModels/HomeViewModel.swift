@@ -37,8 +37,5 @@ class HomeViewModel {
         }.map{
             UIImage(data: $0)!
         }
-        
-        // 데이터베이스에서 일기 작성한 날짜 배열 체크하는 메서드
-        DatabaseNetwork.shared.getDiaryDatesWithoutObserver()
     }
 }

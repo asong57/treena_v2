@@ -16,8 +16,6 @@ class CalendarViewModel {
     let dateInput: PublishRelay<String>
     let checkDiaryExisted: PublishRelay<Bool>
     init(){
-        DatabaseNetwork.shared.getDiaryDatesWithoutObserver()
-        
         diaryDates = PublishRelay<[String]>()
         dateInput = PublishRelay<String>()
         checkDiaryExisted = PublishRelay<Bool>()
