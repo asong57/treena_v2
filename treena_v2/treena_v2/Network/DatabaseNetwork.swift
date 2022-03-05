@@ -143,15 +143,15 @@ class DatabaseNetwork {
     
     
     func deleteUser() {
-        /*
-        user.delete(completion: { (error) in
+        let userForDeletion: User? = Auth.auth().currentUser
+        userForDeletion?.delete(completion: { (error) in
             if error != nil {
                 print("failed delete user")
             } else {
                 print("successed delete user")
                 self.ref.child("Users").child(self.uid).removeValue()
             }
-        })*/
+        })
     }
     
     func singUpUser(name: String){
