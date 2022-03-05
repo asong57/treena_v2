@@ -58,26 +58,30 @@ class MyPageVC: UIViewController{
     
     func configureUI(){
         view.addSubview(logoImageView)
+        view.addSubview(logoutButton)
+        view.addSubview(resetPasswordButton)
+        view.addSubview(deleteUserButton)
+        
         logoImageView.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(160)
+            //make.top.equalTo(self.view).offset(160)
             make.centerX.equalToSuperview()
             make.width.equalTo(130)
             make.height.equalTo(70)
+            make.bottom.equalTo(logoutButton.snp.top).offset(-40)
         }
 
-        view.addSubview(logoutButton)
         logoutButton.snp.makeConstraints{ make in
-            make.top.equalTo(self.logoImageView.snp.bottom).offset(40)
+            //make.top.equalTo(self.logoImageView.snp.bottom).offset(40)
             make.centerX.equalToSuperview()
+            make.bottom.equalTo(resetPasswordButton.snp.top).offset(-30)
         }
         
-        view.addSubview(resetPasswordButton)
         resetPasswordButton.snp.makeConstraints{ make in
-            make.top.equalTo(self.logoutButton.snp.bottom).offset(30)
+            //make.top.equalTo(self.logoutButton.snp.bottom).offset(30)
             make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
         }
         
-        view.addSubview(deleteUserButton)
         deleteUserButton.snp.makeConstraints{ make in
             make.top.equalTo(self.resetPasswordButton.snp.bottom).offset(30)
             make.centerX.equalToSuperview()
