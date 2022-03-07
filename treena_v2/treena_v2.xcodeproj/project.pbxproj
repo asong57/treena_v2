@@ -43,6 +43,7 @@
 		9CD2766127CDED04003017CD /* THEapplemintM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CD2766027CDED04003017CD /* THEapplemintM.otf */; };
 		9CD2766727CF4F77003017CD /* UITextField+LeftPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2766627CF4F77003017CD /* UITextField+LeftPadding.swift */; };
 		9CD2766927CF550B003017CD /* UITextView+LineAndLetterSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2766827CF550B003017CD /* UITextView+LineAndLetterSpacing.swift */; };
+		9CD2768327D5AE88003017CD /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2768227D5AE88003017CD /* LaunchScreenVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,7 +86,7 @@
 		9CD2766027CDED04003017CD /* THEapplemintM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = THEapplemintM.otf; path = ../../../../../../../../../../Users/asong/Downloads/THEapplemintM.otf; sourceTree = "<group>"; };
 		9CD2766627CF4F77003017CD /* UITextField+LeftPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+LeftPadding.swift"; sourceTree = "<group>"; };
 		9CD2766827CF550B003017CD /* UITextView+LineAndLetterSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+LineAndLetterSpacing.swift"; sourceTree = "<group>"; };
-		9CD2767127D0B791003017CD /* emotion_result.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = emotion_result.json; sourceTree = "<group>"; };
+		9CD2768227D5AE88003017CD /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
 		DD06675BAC97AF4831BC9182 /* Pods_treena_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_treena_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -144,7 +145,6 @@
 		9C58982227B9EA180088F0DE /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				9CD2767127D0B791003017CD /* emotion_result.json */,
 				9CD2765327CDC964003017CD /* Font */,
 				9C58982327B9F0E30088F0DE /* Storyboard */,
 				9C58981727B9E9E00088F0DE /* Assets.xcassets */,
@@ -167,6 +167,7 @@
 		9C58982427B9F2430088F0DE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				9CD2768427D5AE8E003017CD /* Launch */,
 				9CD2764A27CCC693003017CD /* SignUp */,
 				9CD2764327C84D71003017CD /* MyPage */,
 				9CD275E227C20AB1003017CD /* Comment */,
@@ -428,6 +429,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		9CD2768427D5AE8E003017CD /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				9CD2768227D5AE88003017CD /* LaunchScreenVC.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 		AC892035AAE9D0090A2FCE87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,6 +576,7 @@
 				9CD2760327C737CD003017CD /* CalendarViewModel.swift in Sources */,
 				9C58980F27B9E9DE0088F0DE /* AppDelegate.swift in Sources */,
 				9CD2764827C850C6003017CD /* MyPageViewModel.swift in Sources */,
+				9CD2768327D5AE88003017CD /* LaunchScreenVC.swift in Sources */,
 				9CD2760127C71DD6003017CD /* EmotionCommentModel.swift in Sources */,
 				9C58981127B9E9DE0088F0DE /* SceneDelegate.swift in Sources */,
 				9C58985227BF9B760088F0DE /* LoginVC.swift in Sources */,
