@@ -149,6 +149,13 @@ extension PlusVC {
                 self?.navigationController?.pushViewController(commentVC, animated: true)
             }
         }).disposed(by: disposeBag)
+        
+        mypageButton.rx.tap
+            .subscribe(onNext:  { [weak self] in
+                let myPageVC = MyPageVC()
+                myPageVC.view.backgroundColor = .white
+                self?.navigationController?.pushViewController(myPageVC, animated: true)
+            }).disposed(by: disposeBag)
     }
 }
 

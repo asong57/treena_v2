@@ -108,9 +108,7 @@ class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
     private func bindUIWithView(){
         homeButton.rx.tap
             .subscribe(onNext:  { [weak self] in
-                let homeVC = HomeVC()
-                homeVC.view.backgroundColor = .white
-                self?.navigationController?.pushViewController(homeVC, animated: true)
+                self?.navigationController?.popViewController(animated: true)
             }).disposed(by: disposeBag)
         
         plusButton.rx.tap
@@ -118,6 +116,13 @@ class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
                 let plusVC = PlusVC()
                 plusVC.view.backgroundColor = .white
                 self?.navigationController?.pushViewController(plusVC, animated: true)
+            }).disposed(by: disposeBag)
+        
+        mypageButton.rx.tap
+            .subscribe(onNext:  { [weak self] in
+                let myPageVC = MyPageVC()
+                myPageVC.view.backgroundColor = .white
+                self?.navigationController?.pushViewController(myPageVC, animated: true)
             }).disposed(by: disposeBag)
     }
 }
@@ -140,7 +145,7 @@ extension CalendarVC {
         let imageDateFormatter = DateFormatter()
         imageDateFormatter.dateFormat = "yyyyMMdd"
         let dateStr = imageDateFormatter.string(from: date)
-        let check = DatabaseNetwork.datesWithDiary.contains(dateStr) ? true : false
+        let check = DatabaseNetwork.shared.datesWithDiary.contains(dateStr) ? true : false
         print("date: \(dateStr) check : \(check)")
         return check ? UIImage(named: "sprout3") : nil
     }

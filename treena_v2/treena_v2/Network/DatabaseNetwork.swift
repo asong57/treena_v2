@@ -18,7 +18,7 @@ class DatabaseNetwork {
     var diaryUsage: Int
     var treeLevel: Int = 0                                                                                            
     var email: String!
-    static var datesWithDiary: [String] = []
+    var datesWithDiary: [String] = []
     var completionHandler: ((Bool) -> Void)?
     
     init() {
@@ -85,39 +85,18 @@ class DatabaseNetwork {
     }
     
     // 일기 쓴 날짜 배열 가져오기
-    func getDiaryDates() -> Observable<[String]> {
-        var datesWithDiary: [String] = []
-        return Observable.create { observer in
-            self.ref.child("diary").child(self.uid).getData{ (error, snapshot) in
-                if let error = error {
-                    print("error getting data \(error)")
-                }else if snapshot.exists() {
-                    let value: [String: String] = snapshot.value as! [String : String]
-                    for key in value.keys {
-                        datesWithDiary.append(key)
-                    }
-                    observer.onNext(datesWithDiary)
-                }else {
-                    print("No data")
-                }
-            }
-            return Disposables.create()
-        }
-    }
-    
-    // 일기 쓴 날짜 배열 가져오기
     func getDiaryDatesWithoutObserver() {
-        DatabaseNetwork.datesWithDiary.removeAll()
+        DatabaseNetwork.shared.datesWithDiary.removeAll()
         self.ref.child("diary").child(self.uid).getData{  [weak self](error, snapshot) in
             if let error = error {
                 print("error getting data \(error)")
             }else if snapshot.exists() {
                 let value: [String: String] = snapshot.value as! [String : String]
                 for key in value.keys {
-                    DatabaseNetwork.datesWithDiary.append(key)
+                    DatabaseNetwork.shared.datesWithDiary.append(key)
                 }
                 _ = self?.completionHandler?(true)
-                print("Database arr : \(DatabaseNetwork.datesWithDiary)")
+                print("Database arr : \(DatabaseNetwork.shared.datesWithDiary)")
             }else {
                 print("No data")
             }

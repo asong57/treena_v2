@@ -200,6 +200,12 @@ class CalendarDetailVC: UIViewController {
         })
         beforeButton.rx.tap.bind(to: viewModel.beforeButtonTouched).disposed(by: disposeBag)
         nextButton.rx.tap.bind(to: viewModel.nextButtonTouched).disposed(by: disposeBag)
+        mypageButton.rx.tap
+            .subscribe(onNext:  { [weak self] in
+                let myPageVC = MyPageVC()
+                myPageVC.view.backgroundColor = .white
+                self?.navigationController?.pushViewController(myPageVC, animated: true)
+            }).disposed(by: disposeBag)
     }
 }
 extension CalendarDetailVC: UITextViewDelegate{
