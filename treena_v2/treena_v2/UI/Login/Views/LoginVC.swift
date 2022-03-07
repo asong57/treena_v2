@@ -21,20 +21,7 @@ class LoginVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        checkIsLogined()
         self.navigationController?.navigationBar.isHidden = true
-    }
-    
-    func checkIsLogined(){
-        if Auth.auth().currentUser != nil{
-            print("logined")
-            let vc = HomeVC()
-            vc.view.backgroundColor = .white
-            self.navigationController?.navigationBar.isHidden = true
-            self.navigationController?.pushViewController(vc, animated: true)
-        }else{
-            print("login 안 되어있음")
-        }
     }
     
     private lazy var logoImageView: UIImageView = {
