@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
-import FirebaseAuth
 
 class HomeVC: UIViewController {
     private let disposeBag = DisposeBag()

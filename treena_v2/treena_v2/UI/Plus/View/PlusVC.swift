@@ -131,6 +131,14 @@ extension PlusVC {
         viewModel.todayDate.onNext(formatter.string(from: Date()))
         saveButton.rx.tap.bind(to: viewModel.saveButtonTouched).disposed(by: disposeBag)
         temporarySaveButton.rx.tap.bind(to: viewModel.temporarySaveButtonTouched).disposed(by: disposeBag)
+        viewModel.diaryText.subscribe(onNext: { [weak self] text in
+            if text == " " {
+                self?.textViewPlaceHolderSetting()
+            }else{
+                self?.textView.text = text
+                self?.textView.textColor = UIColor.black
+            }
+        })
         viewModel.emotionResult.observe(on: MainScheduler.instance).subscribe(onNext: { [weak self] emotion in
             print("PlusVC emotion : \(emotion)")
             if emotion != "" {
@@ -147,6 +155,8 @@ extension PlusVC {
 extension PlusVC: UITextViewDelegate {
     func textViewPlaceHolderSetting(){
         self.textView.delegate = self
+        self.textView.text = "오늘은 어떤 일이 있었나요? \n 오늘 느꼈던 감정에 집중하면서 감정 단어(ex. 행복했다. 슬펐다. 놀랐다)를 사용해서 일기를 작성해 보세요."
+        self.textView.textColor = UIColor.lightGray
     }
     
     // TextView Place Holder
@@ -157,6 +167,13 @@ extension PlusVC: UITextViewDelegate {
         }
     }
  
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
     // TextView Place Holder
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
