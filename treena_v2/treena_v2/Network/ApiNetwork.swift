@@ -13,7 +13,7 @@ class ApiNetwork {
     static let shared = ApiNetwork()
     
     func getEmotion(text: String) -> Observable<String>{
-        let url = ""
+        let url = Bundle.main.apiUrl
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
