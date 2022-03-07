@@ -5,9 +5,9 @@
 //  Created by asong on 2022/02/18.
 //
 
-import Foundation
 import UIKit
 import RxSwift
+import FirebaseAuth
 
 class LoginVC: UIViewController {
     private let viewModel = LoginViewModel()
@@ -18,10 +18,23 @@ class LoginVC: UIViewController {
         configureUI()
         bindUIWithView()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        checkIsLogined()
         self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    func checkIsLogined(){
+        if Auth.auth().currentUser != nil{
+            print("logined")
+            let vc = HomeVC()
+            vc.view.backgroundColor = .white
+            self.navigationController?.navigationBar.isHidden = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+            print("login 안 되어있음")
+        }
     }
     
     private lazy var logoImageView: UIImageView = {

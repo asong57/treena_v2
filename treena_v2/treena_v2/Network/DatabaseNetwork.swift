@@ -39,15 +39,17 @@ class DatabaseNetwork {
     // 데이터베이스 사용자 일기량 확인 
     func checkDiaryUsage() -> Observable<Int>{
         return Observable.create { subject in
-            self.ref.child("diary").child(self.uid).getData{ (error, snapshot) in
-                if let error = error {
-                    print("error getting data \(error)")
-                }else if snapshot.exists() {
-                    self.diaryUsage = Int(snapshot.childrenCount)
-                    print("got data \(self.diaryUsage)")
-                    subject.onNext(self.diaryUsage)
-                }else {
-                    print("No data")
+            if self.uid != nil {
+                self.ref.child("diary").child(self.uid).getData{ (error, snapshot) in
+                    if let error = error {
+                        print("error getting data \(error)")
+                    }else if snapshot.exists() {
+                        self.diaryUsage = Int(snapshot.childrenCount)
+                        print("got data \(self.diaryUsage)")
+                        subject.onNext(self.diaryUsage)
+                    }else {
+                        print("No data")
+                    }
                 }
             }
             return Disposables.create()
