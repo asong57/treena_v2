@@ -15,7 +15,6 @@ class DatabaseNetwork {
     
     private var ref: DatabaseReference!
     var uid: String!
-    var diaryUsage: Int
     var treeLevel: Int = 0                                                                                            
     var email: String!
     var datesWithDiary: [String] = []
@@ -25,7 +24,6 @@ class DatabaseNetwork {
         // Firebase Database 연결
         ref = Database.database().reference()
     
-        diaryUsage = 0
         if Auth.auth().currentUser != nil {
             let user = Auth.auth().currentUser
             uid = user?.uid
@@ -44,10 +42,11 @@ class DatabaseNetwork {
                     if let error = error {
                         print("error getting data \(error)")
                     }else if snapshot.exists() {
-                        self.diaryUsage = Int(snapshot.childrenCount)
-                        print("got data \(self.diaryUsage)")
-                        subject.onNext(self.diaryUsage)
+                        let diaryUsage = Int(snapshot.childrenCount)
+                        print("got data \(diaryUsage)")
+                        subject.onNext(diaryUsage)
                     }else {
+                        subject.onNext(0)
                         print("No data")
                     }
                 }
@@ -98,6 +97,7 @@ class DatabaseNetwork {
                 _ = self?.completionHandler?(true)
                 print("Database arr : \(DatabaseNetwork.shared.datesWithDiary)")
             }else {
+                _ = self?.completionHandler?(true)
                 print("No data")
             }
         }
