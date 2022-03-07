@@ -1,0 +1,9 @@
+## API 설정 관리
+Application/*.xcconfig
+Application/*.plist
+
+## Firebase
+GoogleService-Info.plist
+
+## User settings
+xcuserdata/

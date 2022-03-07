@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   API_URL.plist
-   treena_v2
-
-   Created by asong on 2022/03/07.
-   Copyright (c) 2022 ___ORGANIZATIONNAME___. All rights reserved.
--->
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>API_URL</key>
+	<string>https://mjc7dd21o2.execute-api.eu-central-1.amazonaws.com/dev/qa</string>
+</dict>
 </plist>

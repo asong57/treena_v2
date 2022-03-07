@@ -7,3 +7,5 @@
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
+
+API_URL = "https://mjc7dd21o2.execute-api.eu-central-1.amazonaws.com/dev/qa"
