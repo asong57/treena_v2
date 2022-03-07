@@ -1,6 +1,6 @@
 ## API 설정 관리
-Application/*.xcconfig
-Application/*.plist
+treena_v2/Application/*.xcconfig
+treena_v2/Application/*.plist
 
 ## Firebase
 GoogleService-Info.plist

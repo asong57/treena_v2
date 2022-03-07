@@ -54,6 +54,7 @@ PODS:
     - GoogleUtilities/UserDefaults (~> 7.4)
     - PromisesObjC (< 3.0, >= 1.2)
   - FSCalendar (2.8.2)
+  - Gifu (3.3.1)
   - GoogleAppMeasurement (8.7.0):
     - GoogleAppMeasurement/AdIdSupport (= 8.7.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
@@ -112,6 +113,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Database
   - FSCalendar
+  - Gifu
   - RxCocoa (= 6.5.0)
   - RxSwift (= 6.5.0)
   - SnapKit (~> 5.0.0)
@@ -127,6 +129,7 @@ SPEC REPOS:
     - FirebaseDatabase
     - FirebaseInstallations
     - FSCalendar
+    - Gifu
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
@@ -149,6 +152,7 @@ SPEC CHECKSUMS:
   FirebaseDatabase: afc82291f9ed94ff949cec1b9505e8c3b944bc0f
   FirebaseInstallations: ede6fb72bb6337914e5888b399271259d0c4910c
   FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
+  Gifu: 416d4e38c4c2fed012f019e0a1d3ffcb58e5b842
   GoogleAppMeasurement: 2be61ce546ad074dbe4dd545f222ac6033bb1d9e
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
   GoogleUtilities: 8de2a97a17e15b6b98e38e8770e2d129a57c0040
@@ -161,6 +165,6 @@ SPEC CHECKSUMS:
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 1e8c23afdfc04a87029f356413e4d2e4251fe9d5
+PODFILE CHECKSUM: 45e22e5606ad63551bad4dda7b383702d8237b3e
 
 COCOAPODS: 1.11.2
