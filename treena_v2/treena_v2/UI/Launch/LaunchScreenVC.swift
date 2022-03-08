@@ -35,6 +35,7 @@ class LaunchScreenVC: UIViewController{
     }
     
     func checkIsLogined(){
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         if Auth.auth().currentUser != nil{
             print("logined")
             let vc = HomeVC()
