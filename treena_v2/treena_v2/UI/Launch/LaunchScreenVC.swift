@@ -37,13 +37,11 @@ class LaunchScreenVC: UIViewController{
     func checkIsLogined(){
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         if Auth.auth().currentUser != nil{
-            print("logined")
             let vc = HomeVC()
             vc.view.backgroundColor = .white
             self.navigationController?.navigationBar.isHidden = true
             self.navigationController?.pushViewController(vc, animated: true)
         }else{
-            print("login 안 되어있음")
             let vc = LoginVC()
             vc.view.backgroundColor = .white
             self.navigationController?.pushViewController(vc, animated: true)

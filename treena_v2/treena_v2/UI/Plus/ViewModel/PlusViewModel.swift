@@ -36,12 +36,10 @@ class PlusViewModel: HomeViewModel {
         super.init()
         
         todayDate.subscribe(onNext: { [weak self] date in
-            print("date : \(date)")
             if date != "" {
                 DatabaseNetwork.shared.getDiary(date: date).subscribe{ [weak self] text in
                     self?.diaryText.accept(text)
                 }
-                print("데이터베이스 가져오기")
             }else{
                 self?.diaryText.accept(" ")
             }
@@ -56,7 +54,6 @@ class PlusViewModel: HomeViewModel {
             ApiNetwork.shared.getEmotion(text: event.text).subscribe{ event in
                 switch event {
                 case let .next(answer):
-                    print("PlusViewModel emotion : \(answer)")
                     self!.emotionResult.accept(answer)
                 default: break
                 }

@@ -25,11 +25,8 @@ class CommentViewModel: PlusViewModel {
                 if emotion == emotionJsonData.emotions[i].name {
                     let type = emotionJsonData.emotions[i].type
                     let random = Int.random(in: 0..<emotionJsonData.emotions[i].response.count)
-                    print("random: \(random) \(emotionJsonData.emotions[i].response.count) i: \(i)")
                     self?.commentText.accept(emotionJsonData.emotions[i].response[random])
                     self?.setTreenaEmotionImage(type: type)
-                    print("response : \(emotionJsonData.emotions[i].response[0])")
-                    print("type : \(type)")
                     break
                 }
             }

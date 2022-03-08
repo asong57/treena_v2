@@ -131,7 +131,6 @@ extension CalendarVC {
         let calendarDetailVC = CalendarDetailVC()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
-        print(dateFormatter.string(from: date))
         calendarDetailVC.viewModel.todayDate.onNext(dateFormatter.string(from: date))
         calendarDetailVC.view.backgroundColor = .white
         self.navigationController?.navigationBar.isHidden = true
@@ -146,7 +145,6 @@ extension CalendarVC {
         imageDateFormatter.dateFormat = "yyyyMMdd"
         let dateStr = imageDateFormatter.string(from: date)
         let check = DatabaseNetwork.shared.datesWithDiary.contains(dateStr) ? true : false
-        print("date: \(dateStr) check : \(check)")
         return check ? UIImage(named: "sprout3") : nil
     }
 }

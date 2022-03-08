@@ -83,10 +83,6 @@ extension CommentVC {
     }
     
     private func bindUIWithView(){
-        viewModel.emotionResult.observe(on: MainScheduler.instance).subscribe(onNext: { emotion in
-            print("CommentVC emotion: \(emotion)")
-        }).disposed(by: disposeBag)
-        
         homeButton.rx.tap
             .subscribe(onNext:  { [weak self] in
                 let homeVC = HomeVC()

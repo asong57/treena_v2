@@ -28,16 +28,11 @@ class ApiNetwork {
         } catch {
             print("http Body Error")
         }
-        print("api 통신 전")
         return Observable.create{observer -> Disposable in
-            print("api 통신 시작")
             // 인공지능 모델 API 통신 요청
             AF.request(request).responseJSON { (response) in
                 switch response.result {
                 case .success(let res):
-                    print("POST 성공")
-                    print(res)
-                    
                     do{
                         // response JSON 파싱
                         let data = try? JSONSerialization.data(withJSONObject: res, options: .prettyPrinted)
@@ -46,10 +41,8 @@ class ApiNetwork {
                             emotionAnswer = try JSONDecoder().decode(ApiResponseModel.self, from: data!).answer
                         } catch{
                             emotionAnswer = "neutral"
-                            print("emotion nil")
                         }
                         observer.onNext(emotionAnswer)
-                        print("ApiNetwork emotion: \(emotionAnswer)")
                     } catch(let err) {
                         print(err.localizedDescription)
                     }

@@ -180,7 +180,6 @@ class CalendarDetailVC: UIViewController {
                 }
             }).disposed(by: disposeBag)
         viewModel.emotionResult.observe(on: MainScheduler.instance).subscribe(onNext: { [weak self] emotion in
-            print("PlusVC emotion : \(emotion)")
             if emotion != "" {
                 let commentVC = CommentVC()
                 commentVC.view.backgroundColor = .white

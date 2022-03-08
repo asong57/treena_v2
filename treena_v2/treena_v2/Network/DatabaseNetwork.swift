@@ -28,7 +28,6 @@ class DatabaseNetwork {
             let user = Auth.auth().currentUser
             uid = user?.uid
             email = user?.email
-            print("user exists : \(String(describing: uid))")
         } else{
             print("user is nil")
         }
@@ -39,9 +38,6 @@ class DatabaseNetwork {
             let user = Auth.auth().currentUser
             uid = user?.uid
             email = user?.email
-            print("user exists : \(String(describing: uid))")
-        } else{
-            print("user is nil")
         }
     }
     
@@ -54,11 +50,9 @@ class DatabaseNetwork {
                         print("error getting data \(error)")
                     }else if snapshot.exists() {
                         let diaryUsage = Int(snapshot.childrenCount)
-                        print("got data \(diaryUsage)")
                         subject.onNext(diaryUsage)
                     }else {
                         subject.onNext(0)
-                        print("No data")
                     }
                 }
             }
@@ -68,7 +62,6 @@ class DatabaseNetwork {
     
     func saveDiary(text: String, date: String) {
         self.ref.child("diary").child(uid).child(date).setValue(text)
-        print("save success")
     }
     
     func getDiary(date: String) -> Observable<String> {
@@ -79,10 +72,8 @@ class DatabaseNetwork {
                 }else if snapshot.exists() {
                     let text = snapshot.value as! String
                     observer.onNext(text)
-                    print("got data \(snapshot.value!)")
                 }else {
                     observer.onNext(" ")
-                    print("No data")
                 }
             }
             return Disposables.create()
@@ -91,7 +82,6 @@ class DatabaseNetwork {
     
     func deleteDiary(date: String){
         self.ref.child("diary").child(uid).child(date).removeValue()
-        print("delete diary")
     }
     
     // 일기 쓴 날짜 배열 가져오기
@@ -106,10 +96,8 @@ class DatabaseNetwork {
                     DatabaseNetwork.shared.datesWithDiary.append(key)
                 }
                 _ = self?.completionHandler?(true)
-                print("Database arr : \(DatabaseNetwork.shared.datesWithDiary)")
             }else {
                 _ = self?.completionHandler?(true)
-                print("No data")
             }
         }
     }
@@ -117,7 +105,6 @@ class DatabaseNetwork {
     func logout() {
         do {
             try Auth.auth().signOut()
-            print("logout success")
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
@@ -140,7 +127,6 @@ class DatabaseNetwork {
             if error != nil {
                 print("failed delete user")
             } else {
-                print("successed delete user")
                 self.ref.child("Users").child(self.uid).removeValue()
             }
         })
@@ -151,10 +137,6 @@ class DatabaseNetwork {
         if Auth.auth().currentUser != nil {
             let value: [String: Any] = [ "uid" : uid, "email" : email, "name": name]
             self.ref.child("Users").child(uid).setValue(value)
-            print("uid : \(uid)")
-            print("email : \(email)")
-            print("name: \(name)")
-            print("database saved")
         } else{
             print("user is nil")
         }

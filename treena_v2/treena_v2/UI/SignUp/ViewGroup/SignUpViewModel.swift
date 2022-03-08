@@ -43,11 +43,10 @@ class SignUpViewModel {
                 } else {
                     Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                         if authResult != nil{
-                            print("register success")
                             DatabaseNetwork.shared.singUpUser(name: name)
                             self.output.goToLogin.accept(())
                         } else {
-                            print("register failed")
+                            self.output.errorMessage.accept("회원가입에 실패했습니다.")
                         }
                     }
                 }

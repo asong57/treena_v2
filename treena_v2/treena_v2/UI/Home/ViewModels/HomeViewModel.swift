@@ -18,11 +18,7 @@ class HomeViewModel {
     
     init(){
         let diaryUsage: Observable<Int> = DatabaseNetwork.shared.checkDiaryUsage()
-      
-        diaryUsage.subscribe(onNext: { element in
-            print(element)
-        }).disposed(by: disposeBag)
-        
+
         treeLevel = diaryUsage.map{
             TreeLevel.setTreeLevel(diaryUsage: $0)
         }
