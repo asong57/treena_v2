@@ -31,7 +31,6 @@
 		9CD275F427C619AF003017CD /* CalendarDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD275F327C619AF003017CD /* CalendarDetailVC.swift */; };
 		9CD275F727C6225B003017CD /* CalendarDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD275F627C6225B003017CD /* CalendarDetailViewModel.swift */; };
 		9CD275FC27C71B99003017CD /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD275FB27C71B99003017CD /* CommentViewModel.swift */; };
-		9CD275FE27C71D75003017CD /* emotion_result.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CD275FD27C71D75003017CD /* emotion_result.json */; };
 		9CD2760127C71DD6003017CD /* EmotionCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2760027C71DD6003017CD /* EmotionCommentModel.swift */; };
 		9CD2760327C737CD003017CD /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2760227C737CD003017CD /* CalendarViewModel.swift */; };
 		9CD2764627C84D87003017CD /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2764527C84D87003017CD /* MyPageVC.swift */; };
@@ -48,6 +47,7 @@
 		9CD2768D27D5EB77003017CD /* HideAPI+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2768C27D5EB77003017CD /* HideAPI+Bundle.swift */; };
 		9CD2768F27D5F92A003017CD /* treena_launch.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9CD2768E27D5F92A003017CD /* treena_launch.gif */; };
 		9CD2769727D72E82003017CD /* treena_loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9CD2769627D72E82003017CD /* treena_loading.gif */; };
+		9CD2769A27D77DBC003017CD /* emotion_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CD2769927D77DBC003017CD /* emotion_json.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,7 +78,6 @@
 		9CD275F327C619AF003017CD /* CalendarDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailVC.swift; sourceTree = "<group>"; };
 		9CD275F627C6225B003017CD /* CalendarDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailViewModel.swift; sourceTree = "<group>"; };
 		9CD275FB27C71B99003017CD /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
-		9CD275FD27C71D75003017CD /* emotion_result.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = emotion_result.json; path = ../../../../../../../../../../Users/asong/Downloads/emotion_result.json; sourceTree = "<group>"; };
 		9CD2760027C71DD6003017CD /* EmotionCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionCommentModel.swift; sourceTree = "<group>"; };
 		9CD2760227C737CD003017CD /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		9CD2764527C84D87003017CD /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
@@ -95,6 +94,7 @@
 		9CD2768C27D5EB77003017CD /* HideAPI+Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HideAPI+Bundle.swift"; sourceTree = "<group>"; };
 		9CD2768E27D5F92A003017CD /* treena_launch.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = treena_launch.gif; path = ../../../../../../../../../../Users/asong/Downloads/treena_launch.gif; sourceTree = "<group>"; };
 		9CD2769627D72E82003017CD /* treena_loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = treena_loading.gif; path = ../../../../../../../../../../Users/asong/Downloads/treena_loading.gif; sourceTree = "<group>"; };
+		9CD2769927D77DBC003017CD /* emotion_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emotion_json.json; sourceTree = "<group>"; };
 		DD06675BAC97AF4831BC9182 /* Pods_treena_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_treena_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -166,7 +166,6 @@
 		9C58982327B9F0E30088F0DE /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				9CD275FD27C71D75003017CD /* emotion_result.json */,
 				9C58981427B9E9DE0088F0DE /* Main.storyboard */,
 				9C58981927B9E9E00088F0DE /* LaunchScreen.storyboard */,
 			);
@@ -357,6 +356,7 @@
 		9CD275FF27C71DC1003017CD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9CD2769927D77DBC003017CD /* emotion_json.json */,
 				9CD2760027C71DD6003017CD /* EmotionCommentModel.swift */,
 			);
 			path = Model;
@@ -519,12 +519,12 @@
 			files = (
 				9CD2766127CDED04003017CD /* THEapplemintM.otf in Resources */,
 				9C58981B27B9E9E00088F0DE /* LaunchScreen.storyboard in Resources */,
-				9CD275FE27C71D75003017CD /* emotion_result.json in Resources */,
 				9C58984727BF85D20088F0DE /* GoogleService-Info.plist in Resources */,
 				9C58981827B9E9E00088F0DE /* Assets.xcassets in Resources */,
 				9CD2765F27CDECDE003017CD /* THEapplemintL.otf in Resources */,
 				9CD2769727D72E82003017CD /* treena_loading.gif in Resources */,
 				9CD2768F27D5F92A003017CD /* treena_launch.gif in Resources */,
+				9CD2769A27D77DBC003017CD /* emotion_json.json in Resources */,
 				9C58981627B9E9DE0088F0DE /* Main.storyboard in Resources */,
 				9CD2765D27CDE8FF003017CD /* THEapplemintR.otf in Resources */,
 				9CD2768B27D5EB35003017CD /* API_URL.plist in Resources */,

@@ -1,0 +1,12 @@
+{
+  "data" : [
+    {
+      "filename" : "emotion_json.json",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

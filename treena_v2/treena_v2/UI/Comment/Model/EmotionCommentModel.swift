@@ -21,7 +21,7 @@ struct EmotionCommentModel: Codable {
     // EmotionResult.json 파싱
     static func parseEmotionResult() -> EmotionCommentModel{
         let jsonDecoder = JSONDecoder()
-        let emotionData: NSDataAsset = NSDataAsset(name: "emotion_result")!
+        let emotionData: NSDataAsset = NSDataAsset(name: "emotion_json")!
         let emotionJson = try! jsonDecoder.decode(EmotionCommentModel.self, from: emotionData.data)
         return emotionJson
     }

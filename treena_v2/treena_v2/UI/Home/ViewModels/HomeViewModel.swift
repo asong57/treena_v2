@@ -18,7 +18,7 @@ class HomeViewModel {
     
     init(){
         let diaryUsage: Observable<Int> = DatabaseNetwork.shared.checkDiaryUsage()
-
+        
         treeLevel = diaryUsage.map{
             TreeLevel.setTreeLevel(diaryUsage: $0)
         }
