@@ -91,7 +91,7 @@ class MyPageVC: UIViewController{
     private func bindUIWithView(){
         resetPasswordButton.rx.tap.bind(to:viewModel.resetPasswordTouched).disposed(by: disposeBag)
         viewModel.resetPasswordTouched.subscribe(onNext: { [weak self] event in
-            self?.showAlertResetPassword()
+            self?.showAlert(title: "비밀번호 변경", message: "비밀번호 변경을 위한 이메일이 발송되었습니다.")
         })
         logoutButton.rx.tap.bind(to: viewModel.logoutTouched).disposed(by: disposeBag)
         viewModel.logoutTouched.subscribe(onNext: {[weak self] event in
@@ -101,15 +101,13 @@ class MyPageVC: UIViewController{
         })
         deleteUserButton.rx.tap.bind(to: viewModel.deleteUserTouched).disposed(by: disposeBag)
         viewModel.deleteUserTouched.subscribe(onNext: {[weak self] event in
-            let loginVC = LoginVC()
-            loginVC.view.backgroundColor = .white
-            self?.navigationController?.pushViewController(loginVC, animated: true)
+            self?.showAlert(title: "탈퇴", message: "탈퇴가 성공적으로 완료되었습니다.")
         })
     }
     
-    private func showAlertResetPassword(){
-        let alert = UIAlertController(title: "비밀번호 변경", message: "비밀번호 변경을 위한 이메일이 발송되었습니다.", preferredStyle: UIAlertController.Style.alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+    private func showAlert(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message,  preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "확인", style: .default) { (action) in
             let loginVC = LoginVC()
             loginVC.view.backgroundColor = .white
             self.navigationController?.pushViewController(loginVC, animated: true)

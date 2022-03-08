@@ -171,10 +171,16 @@ extension SignUpVC {
         
         viewModel.output.errorMessage.observe(on: MainScheduler.instance).bind(to: errorLabel.rx.text).disposed(by: disposeBag)
         viewModel.output.goToLogin.observe(on: MainScheduler.instance).bind (onNext: { [weak self] in
-            let loginVC = LoginVC()
-            loginVC.view.backgroundColor = .white
-            self?.navigationController!.navigationBar.isHidden = true
-            self?.navigationController!.pushViewController(loginVC, animated: true)
+            self?.showCompleteSignUpAlert()
         }).disposed(by: disposeBag)
+    }
+    
+    private func showCompleteSignUpAlert(){
+        let alert = UIAlertController(title: "회원가입 완료", message: "회원가입이 성공적으로 완료되었습니다.", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "확인", style: .default) { (action) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okAction)
+        present(alert, animated: false, completion: nil)
     }
 }
