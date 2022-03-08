@@ -40,6 +40,7 @@ class LoginViewModel {
                             DatabaseNetwork.shared.setUid()
                             self.output.goToMain.accept(())
                         }else{
+                            self.output.errorMessage.accept("로그인에 실패했습니다.")
                             print("login failed")
                         }
                     }

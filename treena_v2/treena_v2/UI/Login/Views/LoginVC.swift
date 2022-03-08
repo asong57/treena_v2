@@ -70,6 +70,10 @@ class LoginVC: UIViewController {
         label.font = UIFont(name: "THEAppleR", size: 15)
         return label
     }()
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
 extension LoginVC {
     func configureUI(){

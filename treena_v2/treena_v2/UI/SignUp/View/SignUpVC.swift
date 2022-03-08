@@ -91,6 +91,10 @@ class SignUpVC: UIViewController {
         label.textColor = UIColor(red: 26/255, green: 153/255, blue: 13/255, alpha: 1)
         return label
     }()
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
 extension SignUpVC {
     func configureUI(){
