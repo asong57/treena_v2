@@ -18,13 +18,7 @@ class PlusVC: UIViewController {
         imageView.image = UIImage(named: "treena_logo")
         return imageView
     }()
-    
-    private lazy var mypageButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "profile2"), for: .normal)
-        return button
-    }()
-    
+
     private lazy var todayLabel: UILabel = {
         let label = UILabel()
         var formatter = DateFormatter()
@@ -89,14 +83,6 @@ extension PlusVC {
             make.height.equalTo(50)
         }
         
-        view.addSubview(mypageButton)
-        mypageButton.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(40)
-            make.right.equalTo(self.view.snp.right).offset(-20)
-            make.width.equalTo(75)
-            make.height.equalTo(60)
-        }
-        
         view.addSubview(todayLabel)
         todayLabel.snp.makeConstraints{ make in
             make.top.equalTo(self.view).offset(107)
@@ -149,13 +135,6 @@ extension PlusVC {
                 self?.navigationController?.pushViewController(commentVC, animated: true)
             }
         }).disposed(by: disposeBag)
-        
-        mypageButton.rx.tap
-            .subscribe(onNext:  { [weak self] in
-                let myPageVC = MyPageVC()
-                myPageVC.view.backgroundColor = .white
-                self?.navigationController?.pushViewController(myPageVC, animated: true)
-            }).disposed(by: disposeBag)
     }
 }
 
