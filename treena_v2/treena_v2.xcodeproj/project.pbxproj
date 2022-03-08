@@ -47,6 +47,7 @@
 		9CD2768B27D5EB35003017CD /* API_URL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CD2768A27D5EB35003017CD /* API_URL.plist */; };
 		9CD2768D27D5EB77003017CD /* HideAPI+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2768C27D5EB77003017CD /* HideAPI+Bundle.swift */; };
 		9CD2768F27D5F92A003017CD /* treena_launch.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9CD2768E27D5F92A003017CD /* treena_launch.gif */; };
+		9CD2769727D72E82003017CD /* treena_loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9CD2769627D72E82003017CD /* treena_loading.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		9CD2768A27D5EB35003017CD /* API_URL.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API_URL.plist; sourceTree = "<group>"; };
 		9CD2768C27D5EB77003017CD /* HideAPI+Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HideAPI+Bundle.swift"; sourceTree = "<group>"; };
 		9CD2768E27D5F92A003017CD /* treena_launch.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = treena_launch.gif; path = ../../../../../../../../../../Users/asong/Downloads/treena_launch.gif; sourceTree = "<group>"; };
+		9CD2769627D72E82003017CD /* treena_loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = treena_loading.gif; path = ../../../../../../../../../../Users/asong/Downloads/treena_loading.gif; sourceTree = "<group>"; };
 		DD06675BAC97AF4831BC9182 /* Pods_treena_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_treena_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -277,6 +279,7 @@
 		9CD275DE27C20222003017CD /* Plus */ = {
 			isa = PBXGroup;
 			children = (
+				9CD2769627D72E82003017CD /* treena_loading.gif */,
 				9CD275E927C219EB003017CD /* Model */,
 				9CD275E627C20F93003017CD /* ViewModel */,
 				9CD275DF27C2022C003017CD /* View */,
@@ -520,6 +523,7 @@
 				9C58984727BF85D20088F0DE /* GoogleService-Info.plist in Resources */,
 				9C58981827B9E9E00088F0DE /* Assets.xcassets in Resources */,
 				9CD2765F27CDECDE003017CD /* THEapplemintL.otf in Resources */,
+				9CD2769727D72E82003017CD /* treena_loading.gif in Resources */,
 				9CD2768F27D5F92A003017CD /* treena_launch.gif in Resources */,
 				9C58981627B9E9DE0088F0DE /* Main.storyboard in Resources */,
 				9CD2765D27CDE8FF003017CD /* THEapplemintR.otf in Resources */,

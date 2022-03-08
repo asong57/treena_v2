@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import RxSwift
+import Gifu
 
 class CalendarDetailVC: UIViewController {
     private let disposeBag = DisposeBag()
@@ -85,6 +86,12 @@ class CalendarDetailVC: UIViewController {
         return button
     }()
     
+    private lazy var loadingImageView: GIFImageView = {
+        let image = GIFImageView()
+        image.animate(withGIFNamed: "treena_loading")
+        return image
+    }()
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -155,6 +162,11 @@ class CalendarDetailVC: UIViewController {
             }
         })
         saveButton.rx.tap.bind(to: viewModel.saveButtonTouched).disposed(by: disposeBag)
+        saveButton.rx.tap
+            .subscribe(onNext:  { [weak self] in
+                self?.navigationController?.navigationBar.isHidden = true
+                self?.addLoadingView()
+            }).disposed(by: disposeBag)
         temporarySaveButton.rx.tap.bind(to: viewModel.temporarySaveButtonTouched).disposed(by: disposeBag)
         deleteButton.rx.tap.bind(to: viewModel.deleteButtonTouched).disposed(by: disposeBag)
         deleteButton.rx.tap
@@ -190,6 +202,15 @@ class CalendarDetailVC: UIViewController {
         })
         beforeButton.rx.tap.bind(to: viewModel.beforeButtonTouched).disposed(by: disposeBag)
         nextButton.rx.tap.bind(to: viewModel.nextButtonTouched).disposed(by: disposeBag)
+    }
+    
+    func addLoadingView(){
+        view.addSubview(loadingImageView)
+        self.loadingImageView.snp.makeConstraints{ make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.top.bottom.left.right.equalTo(self.view).offset(0)
+        }
     }
 }
 extension CalendarDetailVC: UITextViewDelegate{

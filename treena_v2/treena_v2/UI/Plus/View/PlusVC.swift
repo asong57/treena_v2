@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import RxSwift
+import Gifu
 
 class PlusVC: UIViewController {
     private let disposeBag = DisposeBag()
@@ -56,6 +57,12 @@ class PlusVC: UIViewController {
         button.titleLabel?.font = UIFont(name: "THEAppleM", size: 18)
         button.setTitleColor(.black, for: .normal)
         return button
+    }()
+    
+    private lazy var loadingImageView: GIFImageView = {
+        let image = GIFImageView()
+        image.animate(withGIFNamed: "treena_loading")
+        return image
     }()
 
     override func viewDidLoad() {
@@ -120,6 +127,11 @@ extension PlusVC {
         formatter.dateFormat = "yyyyMMdd"
         viewModel.todayDate.onNext(formatter.string(from: Date()))
         saveButton.rx.tap.bind(to: viewModel.saveButtonTouched).disposed(by: disposeBag)
+        saveButton.rx.tap
+            .subscribe(onNext:  { [weak self] in
+                self?.navigationController?.navigationBar.isHidden = true
+                self?.addLoadingView()
+            }).disposed(by: disposeBag)
         temporarySaveButton.rx.tap.bind(to: viewModel.temporarySaveButtonTouched).disposed(by: disposeBag)
         viewModel.diaryText.subscribe(onNext: { [weak self] text in
             if text == " " {
@@ -139,6 +151,15 @@ extension PlusVC {
                 self?.navigationController?.pushViewController(commentVC, animated: true)
             }
         }).disposed(by: disposeBag)
+    }
+    
+    func addLoadingView(){
+        view.addSubview(loadingImageView)
+        self.loadingImageView.snp.makeConstraints{ make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.top.bottom.left.right.equalTo(self.view).offset(0)
+        }
     }
 }
 
