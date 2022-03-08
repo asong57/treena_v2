@@ -37,6 +37,7 @@ class LoginViewModel {
                     Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                         if user != nil{
                             print("login success")
+                            DatabaseNetwork.shared.setUid()
                             self.output.goToMain.accept(())
                         }else{
                             print("login failed")

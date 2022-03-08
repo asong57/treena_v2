@@ -34,6 +34,17 @@ class DatabaseNetwork {
         }
     }
     
+    func setUid(){
+        if Auth.auth().currentUser != nil {
+            let user = Auth.auth().currentUser
+            uid = user?.uid
+            email = user?.email
+            print("user exists : \(String(describing: uid))")
+        } else{
+            print("user is nil")
+        }
+    }
+    
     // 데이터베이스 사용자 일기량 확인 
     func checkDiaryUsage() -> Observable<Int>{
         return Observable.create { subject in

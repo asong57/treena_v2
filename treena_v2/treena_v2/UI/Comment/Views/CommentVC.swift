@@ -26,17 +26,9 @@ class CommentVC: UIViewController {
 
     private lazy var commentLabel: UILabel = {
         let label = UILabel()
-        /*
-        let strokeTextAttributes = [
-            NSAttributedString.Key.strokeColor : UIColor.white,
-            NSAttributedString.Key.foregroundColor : UIColor.black,
-            NSAttributedString.Key.strokeWidth : -4.0,
-            NSAttributedString.Key.font : UIFont(name: "THEAppleM", size: 18)
-        ] as [NSAttributedString.Key : Any]
-        label.attributedText = NSMutableAttributedString(string: " ", attributes: strokeTextAttributes)*/
         label.text = " "
         label.font = UIFont(name: "THEAppleR", size: 18)
-        label.numberOfLines = 4
+        label.numberOfLines = 7
         return label
     }()
     

@@ -20,7 +20,7 @@ class LaunchScreenVC: UIViewController{
         super.viewDidLoad()
         configureUI()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1500)){
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(2000)){
             self.checkIsLogined()
         }
     }
