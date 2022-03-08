@@ -85,6 +85,10 @@ class CalendarDetailVC: UIViewController {
         return button
     }()
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     func configureUI(){
         view.addSubview(logoImageView)
         logoImageView.snp.makeConstraints{ make in
