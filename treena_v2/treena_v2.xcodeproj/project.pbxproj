@@ -95,6 +95,7 @@
 		9CD2768E27D5F92A003017CD /* treena_launch.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = treena_launch.gif; path = ../../../../../../../../../../Users/asong/Downloads/treena_launch.gif; sourceTree = "<group>"; };
 		9CD2769627D72E82003017CD /* treena_loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = treena_loading.gif; path = ../../../../../../../../../../Users/asong/Downloads/treena_loading.gif; sourceTree = "<group>"; };
 		9CD2769927D77DBC003017CD /* emotion_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emotion_json.json; sourceTree = "<group>"; };
+		9CD2769B27D8F181003017CD /* treena_v2Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = treena_v2Release.entitlements; sourceTree = "<group>"; };
 		DD06675BAC97AF4831BC9182 /* Pods_treena_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_treena_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -140,6 +141,7 @@
 		9C58980D27B9E9DE0088F0DE /* treena_v2 */ = {
 			isa = PBXGroup;
 			children = (
+				9CD2769B27D8F181003017CD /* treena_v2Release.entitlements */,
 				9CD2766427CF4F34003017CD /* Util */,
 				9C58984827BF86C40088F0DE /* Network */,
 				9C58981C27B9E9E00088F0DE /* Info.plist */,
@@ -785,6 +787,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = treena_v2/treena_v2Release.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SXV7AG9997;
@@ -800,8 +804,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.asong57.treena-v2";
+				PRODUCT_BUNDLE_IDENTIFIER = net.asong57.treena;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
