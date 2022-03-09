@@ -43,6 +43,7 @@ class SignUpViewModel {
                 } else {
                     Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                         if authResult != nil{
+                            DatabaseNetwork.shared.setUid()
                             DatabaseNetwork.shared.singUpUser(name: name)
                             self.output.goToLogin.accept(())
                         } else {
