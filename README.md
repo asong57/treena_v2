@@ -24,7 +24,7 @@
 <br />
 
 ## 🔥 treena_v2 : MVVM + RxSwift 리팩토링 프로젝트
-### 🔥 아키텍처 및 디자인 패턴 
+### 🛠 아키텍처 및 디자인 패턴 
 - **RxSwift + MVVM 패턴 사용**
   - ViewModel과 View의 Data Bind와 비동기 로직을 RxSwift를 사용하여 구현
   - MVVM 패턴 도입하여 뷰컨트롤러와 뷰는 화면을 그리는 역할에만 집중하고 데이터 관리, 로직의 실행은 뷰모델에서 진행되도록 구성
