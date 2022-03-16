@@ -8,7 +8,13 @@
 
 **⭐️ 일기 작성을 통해 감정을 표현하고 해소하며, 즉각적인 감정분석과 나무의 성장을 통해 성취감을 느껴보세요!**
 
-(🍎🛠 출시 작업 진행중입니다!)
+<br />
+
+### 🛠 다운로드
+[트리나 앱스토어](https://apps.apple.com/kr/app/%ED%8A%B8%EB%A6%AC%EB%82%98-treena/id1613522990)
+
+<img src = "https://user-images.githubusercontent.com/64069925/158503705-d1a069c8-bede-4795-a2bc-b3949e45e813.PNG" width="30%" height="30%">
+
 
 <br />
 
