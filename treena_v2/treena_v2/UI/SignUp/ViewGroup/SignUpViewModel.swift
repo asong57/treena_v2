@@ -45,6 +45,7 @@ class SignUpViewModel {
                         if authResult != nil{
                             DatabaseNetwork.shared.setUid()
                             DatabaseNetwork.shared.singUpUser(name: name)
+                            self.output.errorMessage.accept("")
                             self.output.goToLogin.accept(())
                         } else {
                             self.output.errorMessage.accept("회원가입에 실패했습니다.")
