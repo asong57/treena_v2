@@ -150,6 +150,9 @@ extension PlusVC {
                 self?.navigationController?.pushViewController(commentVC, animated: true)
             }
         }).disposed(by: disposeBag)
+        viewModel.temporarySaveButtonTouched.subscribe(onNext: { [weak self] event in
+            self?.showAlert(title: "임시저장 완료", message: "임시 저장이 완료되었습니다. \n 트리나의 이야기를 듣고싶다면 저장을 눌러주세요 :) ")
+        })
     }
     
     func addLoadingView(){
@@ -159,6 +162,14 @@ extension PlusVC {
             make.centerY.equalToSuperview()
             make.top.bottom.left.right.equalTo(self.view).offset(0)
         }
+    }
+    
+    private func showAlert(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message,  preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "확인", style: .default) { (action) in
+        }
+        alert.addAction(okAction)
+        present(alert, animated: false, completion: nil)
     }
 }
 
