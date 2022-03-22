@@ -17,7 +17,7 @@ class ApiNetwork {
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.timeoutInterval = 10
+        request.timeoutInterval = 20
         
         // POST 로 보낼 정보
         let params = ["context": text] as Dictionary

@@ -34,7 +34,7 @@ class TreeLevel {
         if (diaryUsage > 42 && diaryUsage <= 49) {
             return 7
         }
-        if (diaryUsage > 49 && diaryUsage <= 56) {
+        if (diaryUsage > 49 ) {
             return 8
         }
         return 0

@@ -22,6 +22,7 @@
 		9C58984D27BF8AA30088F0DE /* TreeLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58984C27BF8AA30088F0DE /* TreeLevel.swift */; };
 		9C58985227BF9B760088F0DE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58985127BF9B760088F0DE /* LoginVC.swift */; };
 		9C58985427BFAE660088F0DE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58985327BFAE660088F0DE /* LoginViewModel.swift */; };
+		9CCD49AE27E0142800DDF52F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CCD49B027E0142800DDF52F /* InfoPlist.strings */; };
 		9CD275E127C20247003017CD /* PlusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD275E027C20247003017CD /* PlusVC.swift */; };
 		9CD275E527C20B06003017CD /* CommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD275E427C20B06003017CD /* CommentVC.swift */; };
 		9CD275E827C20FC2003017CD /* PlusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD275E727C20FC2003017CD /* PlusViewModel.swift */; };
@@ -69,6 +70,10 @@
 		9C58984C27BF8AA30088F0DE /* TreeLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeLevel.swift; sourceTree = "<group>"; };
 		9C58985127BF9B760088F0DE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		9C58985327BFAE660088F0DE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		9CCD49AA27E013DD00DDF52F /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		9CCD49AB27E013DD00DDF52F /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		9CCD49AF27E0142800DDF52F /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9CCD49B127E0142A00DDF52F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9CD275E027C20247003017CD /* PlusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusVC.swift; sourceTree = "<group>"; };
 		9CD275E427C20B06003017CD /* CommentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentVC.swift; sourceTree = "<group>"; };
 		9CD275E727C20FC2003017CD /* PlusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusViewModel.swift; sourceTree = "<group>"; };
@@ -142,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				9CD2769B27D8F181003017CD /* treena_v2Release.entitlements */,
+				9CCD49B027E0142800DDF52F /* InfoPlist.strings */,
 				9CD2766427CF4F34003017CD /* Util */,
 				9C58984827BF86C40088F0DE /* Network */,
 				9C58981C27B9E9E00088F0DE /* Info.plist */,
@@ -503,6 +509,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 9C58980227B9E9DE0088F0DE;
 			productRefGroup = 9C58980C27B9E9DE0088F0DE /* Products */;
@@ -520,6 +527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CD2766127CDED04003017CD /* THEapplemintM.otf in Resources */,
+				9CCD49AE27E0142800DDF52F /* InfoPlist.strings in Resources */,
 				9C58981B27B9E9E00088F0DE /* LaunchScreen.storyboard in Resources */,
 				9C58984727BF85D20088F0DE /* GoogleService-Info.plist in Resources */,
 				9C58981827B9E9E00088F0DE /* Assets.xcassets in Resources */,
@@ -621,6 +629,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9C58981527B9E9DE0088F0DE /* Base */,
+				9CCD49AA27E013DD00DDF52F /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -629,8 +638,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				9C58981A27B9E9E00088F0DE /* Base */,
+				9CCD49AB27E013DD00DDF52F /* ko */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9CCD49B027E0142800DDF52F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9CCD49AF27E0142800DDF52F /* ko */,
+				9CCD49B127E0142A00DDF52F /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -640,6 +659,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -687,13 +707,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -701,6 +722,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -742,12 +764,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -777,7 +800,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -809,7 +832,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

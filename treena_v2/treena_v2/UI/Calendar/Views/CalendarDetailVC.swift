@@ -65,7 +65,7 @@ class CalendarDetailVC: UIViewController {
     private lazy var deleteButton: UIButton = {
         let button = UIButton()
         button.setTitle("삭제", for: .normal)
-        button.titleLabel?.font = UIFont(name: "THEAppleM", size: 18)
+        button.titleLabel?.font = UIFont(name: "THEAppleM", size: 17)
         button.setTitleColor(.black, for: .normal)
         return button
     }()
@@ -74,7 +74,7 @@ class CalendarDetailVC: UIViewController {
         let button = UIButton()
         button.setTitle("임시저장", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont(name: "THEAppleM", size: 18)
+        button.titleLabel?.font = UIFont(name: "THEAppleM", size: 17)
         return button
     }()
     
@@ -82,7 +82,7 @@ class CalendarDetailVC: UIViewController {
         let button = UIButton()
         button.setTitle("저장", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont(name: "THEAppleM", size: 18)
+        button.titleLabel?.font = UIFont(name: "THEAppleM", size: 17)
         return button
     }()
     
@@ -98,6 +98,14 @@ class CalendarDetailVC: UIViewController {
     
     func configureUI(){
         view.addSubview(logoImageView)
+        view.addSubview(dateLabel)
+        view.addSubview(beforeButton)
+        view.addSubview(nextButton)
+        view.addSubview(textView)
+        view.addSubview(deleteButton)
+        view.addSubview(temporarySaveButton)
+        view.addSubview(saveButton)
+        
         logoImageView.snp.makeConstraints{ make in
             make.top.equalTo(self.view).offset(40)
             make.centerX.equalToSuperview()
@@ -105,48 +113,42 @@ class CalendarDetailVC: UIViewController {
             make.height.equalTo(50)
         }
 
-        view.addSubview(dateLabel)
         dateLabel.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(109)
+            make.top.equalTo(textView.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
         }
         
-        view.addSubview(beforeButton)
         beforeButton.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(110)
+            make.top.equalTo(textView.snp.bottom).offset(10)
             make.right.equalTo(dateLabel.snp.left).offset(-10)
             make.width.height.equalTo(15)
         }
         
-        view.addSubview(nextButton)
         nextButton.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(110)
+            make.top.equalTo(textView.snp.bottom).offset(10)
             make.left.equalTo(dateLabel.snp.right).offset(10)
             make.width.height.equalTo(15)
         }
         
-        view.addSubview(textView)
         textView.snp.makeConstraints{ make in
-            make.top.equalTo(dateLabel.snp.bottom).offset(15)
+            make.top.equalTo(self.view).offset(143)
             make.left.equalTo(self.view)
             make.right.equalTo(self.view)
             make.bottom.equalTo(self.view).offset(-100)
         }
-        view.addSubview(deleteButton)
+        
         deleteButton.snp.makeConstraints{ make in
-            make.top.equalTo(textView.snp.bottom).offset(10)
+            make.top.equalTo(self.view).offset(107)
             make.left.equalTo(self.view).offset(40)
         }
         
-        view.addSubview(temporarySaveButton)
         temporarySaveButton.snp.makeConstraints{ make in
-            make.top.equalTo(textView.snp.bottom).offset(10)
+            make.top.equalTo(self.view).offset(107)
             make.centerX.equalToSuperview()
         }
         
-        view.addSubview(saveButton)
         saveButton.snp.makeConstraints{ make in
-            make.top.equalTo(textView.snp.bottom).offset(10)
+            make.top.equalTo(self.view).offset(107)
             make.right.equalTo(self.view).offset(-40)
         }
     }
@@ -164,7 +166,8 @@ class CalendarDetailVC: UIViewController {
         saveButton.rx.tap.bind(to: viewModel.saveButtonTouched).disposed(by: disposeBag)
         saveButton.rx.tap
             .subscribe(onNext:  { [weak self] in
-                self?.navigationController?.navigationBar.isHidden = true
+                self?.navigationController?.navigationBar.isHidden = false
+                self?.view.endEditing(true)
                 self?.addLoadingView()
             }).disposed(by: disposeBag)
         temporarySaveButton.rx.tap.bind(to: viewModel.temporarySaveButtonTouched).disposed(by: disposeBag)
@@ -173,9 +176,7 @@ class CalendarDetailVC: UIViewController {
             .subscribe(onNext:  { [weak self] in
                 DatabaseNetwork.shared.completionHandler = { [weak self] check in
                     if check {
-                        let calendarVC = CalendarVC()
-                        calendarVC.view.backgroundColor = .white
-                        self?.navigationController?.pushViewController(calendarVC, animated: true)
+                        self?.navigationController?.popViewController(animated: true)
                     }
                 }
             }).disposed(by: disposeBag)

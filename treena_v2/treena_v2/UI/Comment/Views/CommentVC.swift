@@ -27,8 +27,19 @@ class CommentVC: UIViewController {
     private lazy var commentLabel: UILabel = {
         let label = UILabel()
         label.text = " "
-        label.font = UIFont(name: "THEAppleR", size: 18)
         label.numberOfLines = 7
+        let font = UIFont(name: "THEAppleR", size: 18)
+        let paragraphStyle = NSMutableParagraphStyle()
+        // 한글 줄바꿈 적용
+        if #available(iOS 14.0, *) {
+            paragraphStyle.lineBreakStrategy = .hangulWordPriority
+        }
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: font,
+            .paragraphStyle: paragraphStyle
+        ]
+        label.attributedText = NSAttributedString(string: label.text ?? "", attributes: attributes)
+
         return label
     }()
     

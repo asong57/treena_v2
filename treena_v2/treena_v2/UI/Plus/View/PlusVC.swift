@@ -46,7 +46,7 @@ class PlusVC: UIViewController {
     private lazy var temporarySaveButton: UIButton = {
         let button = UIButton()
         button.setTitle("임시저장", for: .normal)
-        button.titleLabel?.font = UIFont(name: "THEAppleM", size: 18)
+        button.titleLabel?.font = UIFont(name: "THEAppleM", size: 17)
         button.setTitleColor(.black, for: .normal)
         return button
     }()
@@ -54,7 +54,7 @@ class PlusVC: UIViewController {
     private lazy var saveButton: UIButton = {
         let button = UIButton()
         button.setTitle("저장", for: .normal)
-        button.titleLabel?.font = UIFont(name: "THEAppleM", size: 18)
+        button.titleLabel?.font = UIFont(name: "THEAppleM", size: 17)
         button.setTitleColor(.black, for: .normal)
         return button
     }()
@@ -87,6 +87,11 @@ class PlusVC: UIViewController {
 extension PlusVC {
     func configureUI(){
         view.addSubview(logoImageView)
+        view.addSubview(saveButton)
+        view.addSubview(todayLabel)
+        view.addSubview(textView)
+        view.addSubview(temporarySaveButton)
+        
         logoImageView.snp.makeConstraints{ make in
             make.top.equalTo(self.view).offset(40)
             make.centerX.equalToSuperview()
@@ -94,29 +99,25 @@ extension PlusVC {
             make.height.equalTo(50)
         }
         
-        view.addSubview(todayLabel)
         todayLabel.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(107)
+            make.top.equalTo(textView.snp.bottom).offset(10)
             make.right.equalTo(self.view).offset(-20)
         }
         
-        view.addSubview(textView)
         textView.snp.makeConstraints{ make in
-            make.top.equalTo(self.view).offset(130)
+            make.top.equalTo(self.view).offset(143)
             make.left.equalTo(self.view)
             make.right.equalTo(self.view)
             make.bottom.equalTo(self.view).offset(-100)
         }
         
-        view.addSubview(temporarySaveButton)
         temporarySaveButton.snp.makeConstraints{ make in
-            make.top.equalTo(textView.snp.bottom).offset(10)
+            make.top.equalTo(self.view).offset(107)
             make.left.equalTo(self.view).offset(40)
         }
         
-        view.addSubview(saveButton)
         saveButton.snp.makeConstraints{ make in
-            make.top.equalTo(textView.snp.bottom).offset(10)
+            make.top.equalTo(self.view).offset(107)
             make.right.equalTo(self.view).offset(-40)
         }
     }
@@ -129,7 +130,8 @@ extension PlusVC {
         saveButton.rx.tap.bind(to: viewModel.saveButtonTouched).disposed(by: disposeBag)
         saveButton.rx.tap
             .subscribe(onNext:  { [weak self] in
-                self?.navigationController?.navigationBar.isHidden = true
+                self?.navigationController?.navigationBar.isHidden = false
+                self?.view.endEditing(true)
                 self?.addLoadingView()
             }).disposed(by: disposeBag)
         temporarySaveButton.rx.tap.bind(to: viewModel.temporarySaveButtonTouched).disposed(by: disposeBag)
