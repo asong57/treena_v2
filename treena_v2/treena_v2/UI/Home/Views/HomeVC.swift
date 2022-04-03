@@ -126,7 +126,11 @@ extension HomeVC {
                 self?.navigationController?.pushViewController(myPageVC, animated: true)
             }).disposed(by: disposeBag)
         
-        viewModel.treeImage.bind(to: treeImageView.rx.image).disposed(by: disposeBag)
+        // 캐시 전 이미지 적용 방식
+        //viewModel.treeImage.bind(to: treeImageView.rx.image).disposed(by: disposeBag)
+        viewModel.treeImageUrl.subscribe(onNext: { [weak self] url in
+            self?.treeImageView.setImageWithUrl(url)
+        })
     }
 }
 

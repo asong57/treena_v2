@@ -15,6 +15,7 @@ class HomeViewModel {
     
     let treeImage: Observable<UIImage>
     let treeLevel: Observable<Int>
+    var treeImageUrl: BehaviorSubject<String>
     
     init(){
         let diaryUsage: Observable<Int> = DatabaseNetwork.shared.checkDiaryUsage()
@@ -32,5 +33,12 @@ class HomeViewModel {
         }.map{
             UIImage(data: $0)!
         }
+        
+        // 트리이미지 url 캐시 위한 url 전달 코드
+        treeImageUrl = BehaviorSubject<String>(value: ImageUrl.treeImageURLList[0])
+        treeLevel.subscribe(onNext: { [weak self] in
+            self?.treeImageUrl.onNext(ImageUrl.treeImageURLList[$0])
+            print($0)
+        })
     }
 }
