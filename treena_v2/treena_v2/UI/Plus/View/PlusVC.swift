@@ -129,12 +129,15 @@ extension PlusVC {
         viewModel.todayDate.onNext(formatter.string(from: Date()))
         saveButton.rx.tap.bind(to: viewModel.saveButtonTouched).disposed(by: disposeBag)
         saveButton.rx.tap
+            .throttle(.seconds(2), scheduler: MainScheduler.instance)
             .subscribe(onNext:  { [weak self] in
                 self?.navigationController?.navigationBar.isHidden = false
                 self?.view.endEditing(true)
                 self?.addLoadingView()
             }).disposed(by: disposeBag)
-        temporarySaveButton.rx.tap.bind(to: viewModel.temporarySaveButtonTouched).disposed(by: disposeBag)
+        temporarySaveButton.rx.tap
+            .throttle(.seconds(2), scheduler: MainScheduler.instance)
+            .bind(to: viewModel.temporarySaveButtonTouched).disposed(by: disposeBag)
         viewModel.diaryText.subscribe(onNext: { [weak self] text in
             if text == " " {
                 self?.textViewPlaceHolderSetting()

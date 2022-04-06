@@ -171,7 +171,9 @@ extension SignUpVC {
         emailTextField.rx.text.orEmpty.bind(to: viewModel.input.email).disposed(by: disposeBag)
         passwordTextField.rx.text.orEmpty.bind(to: viewModel.input.password).disposed(by: disposeBag)
         passwordCheckTextField.rx.text.orEmpty.bind(to: viewModel.input.passwordCheck).disposed(by: disposeBag)
-        signUpButton.rx.tap.bind(to: viewModel.input.tapSignUp).disposed(by: disposeBag)
+        signUpButton.rx.tap
+            .throttle(.seconds(2), scheduler: MainScheduler.instance)
+            .bind(to: viewModel.input.tapSignUp).disposed(by: disposeBag)
         
         viewModel.output.errorMessage.observe(on: MainScheduler.instance).bind(to: errorLabel.rx.text).disposed(by: disposeBag)
         viewModel.output.goToLogin.observe(on: MainScheduler.instance).bind (onNext: { [weak self] in

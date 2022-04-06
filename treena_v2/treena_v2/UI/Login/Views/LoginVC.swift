@@ -129,7 +129,9 @@ extension LoginVC {
     private func bindUIWithView(){
         emailTextField.rx.text.orEmpty.bind(to: viewModel.input.email).disposed(by: disposeBag)
         passwordTextField.rx.text.orEmpty.bind(to: viewModel.input.password).disposed(by: disposeBag)
-        loginButton.rx.tap.bind(to: viewModel.input.tapSignIn).disposed(by: disposeBag)
+        loginButton.rx.tap
+            .throttle(.seconds(2), scheduler: MainScheduler.instance)
+            .bind(to: viewModel.input.tapSignIn).disposed(by: disposeBag)
         
         viewModel.output.errorMessage.observe(on: MainScheduler.instance).bind(to: errorLabel.rx.text).disposed(by: disposeBag)
         viewModel.output.goToMain.observe(on: MainScheduler.instance).bind (onNext: { [weak self] in
@@ -140,6 +142,7 @@ extension LoginVC {
         }).disposed(by: disposeBag)
         
         signUpButton.rx.tap
+            .throttle(.seconds(2), scheduler: MainScheduler.instance)
             .subscribe(onNext:  { [weak self] in
                 let signUpVC = SignUpVC()
                 signUpVC.view.backgroundColor = .white

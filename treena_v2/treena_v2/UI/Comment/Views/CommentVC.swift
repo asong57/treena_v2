@@ -95,6 +95,7 @@ extension CommentVC {
     
     private func bindUIWithView(){
         homeButton.rx.tap
+            .throttle(.seconds(2), scheduler: MainScheduler.instance)
             .subscribe(onNext:  { [weak self] in
                 let homeVC = HomeVC()
                 homeVC.view.backgroundColor = .white

@@ -165,14 +165,20 @@ class CalendarDetailVC: UIViewController {
         })
         saveButton.rx.tap.bind(to: viewModel.saveButtonTouched).disposed(by: disposeBag)
         saveButton.rx.tap
+            .throttle(.seconds(2), scheduler: MainScheduler.instance)
             .subscribe(onNext:  { [weak self] in
                 self?.navigationController?.navigationBar.isHidden = false
                 self?.view.endEditing(true)
                 self?.addLoadingView()
             }).disposed(by: disposeBag)
-        temporarySaveButton.rx.tap.bind(to: viewModel.temporarySaveButtonTouched).disposed(by: disposeBag)
-        deleteButton.rx.tap.bind(to: viewModel.deleteButtonTouched).disposed(by: disposeBag)
+        temporarySaveButton.rx.tap
+            .throttle(.seconds(2), scheduler: MainScheduler.instance)
+            .bind(to: viewModel.temporarySaveButtonTouched).disposed(by: disposeBag)
         deleteButton.rx.tap
+            .throttle(.seconds(2), scheduler: MainScheduler.instance)
+            .bind(to: viewModel.deleteButtonTouched).disposed(by: disposeBag)
+        deleteButton.rx.tap
+            .throttle(.seconds(2), scheduler: MainScheduler.instance)
             .subscribe(onNext:  { [weak self] in
                 DatabaseNetwork.shared.completionHandler = { [weak self] check in
                     if check {

@@ -100,6 +100,7 @@ extension HomeVC {
     
     private func bindUIWithView(){
         calendarButton.rx.tap
+            .throttle(.seconds(2), scheduler: MainScheduler.instance)
             .subscribe(onNext:  { [weak self] in
                 // 데이터베이스에서 일기 작성한 날짜 배열 체크하는 메서드
                 DatabaseNetwork.shared.getDiaryDatesWithoutObserver()
@@ -113,6 +114,7 @@ extension HomeVC {
             }).disposed(by: disposeBag)
         
         plusButton.rx.tap
+            .throttle(.seconds(2), scheduler: MainScheduler.instance)
             .subscribe(onNext:  { [weak self] in
                 let plusVC = PlusVC()
                 plusVC.view.backgroundColor = .white
@@ -120,6 +122,7 @@ extension HomeVC {
             }).disposed(by: disposeBag)
         
         mypageButton.rx.tap
+            .throttle(.seconds(2), scheduler: MainScheduler.instance)
             .subscribe(onNext:  { [weak self] in
                 let myPageVC = MyPageVC()
                 myPageVC.view.backgroundColor = .white

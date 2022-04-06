@@ -107,11 +107,13 @@ class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
     }
     private func bindUIWithView(){
         homeButton.rx.tap
+            .throttle(.seconds(2), scheduler: MainScheduler.instance)
             .subscribe(onNext:  { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
             }).disposed(by: disposeBag)
         
         plusButton.rx.tap
+            .throttle(.seconds(2), scheduler: MainScheduler.instance)
             .subscribe(onNext:  { [weak self] in
                 let plusVC = PlusVC()
                 plusVC.view.backgroundColor = .white
@@ -119,6 +121,7 @@ class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
             }).disposed(by: disposeBag)
         
         mypageButton.rx.tap
+            .throttle(.seconds(2), scheduler: MainScheduler.instance)
             .subscribe(onNext:  { [weak self] in
                 let myPageVC = MyPageVC()
                 myPageVC.view.backgroundColor = .white
