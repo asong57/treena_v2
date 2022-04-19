@@ -12,13 +12,14 @@ import RxRelay
 class CommentViewModel: PlusViewModel {
     private let disposeBag = DisposeBag()
     
-    var treenaImage: PublishRelay<UIImage>
     var commentText: PublishRelay<String>
+    var treenaImageUrl: BehaviorSubject<String>
     
     override init(){
-        treenaImage = PublishRelay<UIImage>()
         commentText = PublishRelay<String>()
+        treenaImageUrl = BehaviorSubject<String>(value: ImageUrl.treeImageURLList[0])
         super.init()
+        
         let emotionJsonData = EmotionCommentModel.parseEmotionResult()
         super.emotionResult.subscribe(onNext: { [weak self] emotion in
             for i in 0..<emotionJsonData.emotions.capacity {
@@ -45,16 +46,9 @@ class CommentViewModel: PlusViewModel {
         } else if type == -1 {
             index = 5
         }
-        let image = super.treeLevel
-        .map{
-            URL(string: ImageUrl.treenaImageUrlList[index][$0])
-        }.map{
-            try! Data(contentsOf: $0!)
-        }.map{
-            UIImage(data: $0)!
-        }
-        image.subscribe(onNext: { observer in
-            self.treenaImage.accept(observer)
+        
+        super.treeLevel.subscribe(onNext: { [weak self] in
+            self?.treenaImageUrl.onNext(ImageUrl.treenaImageUrlList[index][$0])
         })
     }
 }

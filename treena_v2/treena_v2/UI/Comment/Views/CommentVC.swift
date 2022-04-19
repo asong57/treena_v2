@@ -101,8 +101,10 @@ extension CommentVC {
                 homeVC.view.backgroundColor = .white
                 self?.navigationController?.pushViewController(homeVC, animated: true)
             }).disposed(by: disposeBag)
-        viewModel.treenaImage.bind(to: treenaImageView.rx.image).disposed(by: disposeBag)
         viewModel.commentText.bind(to: commentLabel.rx.text).disposed(by: disposeBag)
+        viewModel.treenaImageUrl.subscribe(onNext: { [weak self] url in
+            self?.treenaImageView.setImageWithUrl(url)
+        })
     }
 }
 
