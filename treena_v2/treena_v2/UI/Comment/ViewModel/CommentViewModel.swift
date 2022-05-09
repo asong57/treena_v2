@@ -17,7 +17,7 @@ class CommentViewModel: PlusViewModel {
     
     override init(){
         commentText = PublishRelay<String>()
-        treenaImageUrl = BehaviorSubject<String>(value: ImageUrl.treeImageURLList[0])
+        treenaImageUrl = BehaviorSubject<String>(value: ImageUrl.loadingBigImageUrl)
         super.init()
         
         let emotionJsonData = EmotionCommentModel.parseEmotionResult()

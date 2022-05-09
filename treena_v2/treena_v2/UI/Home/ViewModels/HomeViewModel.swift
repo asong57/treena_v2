@@ -23,7 +23,7 @@ class HomeViewModel {
             TreeLevel.setTreeLevel(diaryUsage: $0)
         }
         
-        treeImageUrl = BehaviorSubject<String>(value: ImageUrl.treeImageURLList[0])
+        treeImageUrl = BehaviorSubject<String>(value: ImageUrl.loadingImageUrl)
         treeLevel.subscribe(onNext: { [weak self] in
             self?.treeImageUrl.onNext(ImageUrl.treeImageURLList[$0])
         })
